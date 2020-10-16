@@ -1,27 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Task.BLL
 {
     class Circle : GeometryFigure
     {
-        // нужно реализовать
-        //Circle()
-        //{
-        //}
-
-        public Circle(double[] arrPoints, double radius)
+        private double radius;
+        public Circle()
         {
-            this.arrPoints = new Points[0];
-            this.arrPoints[0].X = arrPoints[0];
-            this.arrPoints[0].Y = arrPoints[1];
-            Radius = radius;
         }
-
-        public double Radius { get; private set; }
+        
+        public double Radius 
+        {
+            get => radius;
+            set
+            {
+                if (value > 0)
+                    radius = value;
+            }
+        }
         
         public override double GetArea() => Math.PI * Radius * Radius;
 

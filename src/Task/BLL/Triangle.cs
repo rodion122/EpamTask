@@ -6,24 +6,20 @@ namespace Task.BLL
     {
         private double[]  triangleSides;
 
-        //public Triangle()
-        //{
-        //    triangleSides = null;
-        //}
-
-        public Triangle(double[] arrPoints)
+        private void setTriangleSides()
         {
-            if (arrPoints == null)
-                throw new ArgumentNullException();
-
-            triangleSides = new double[3];
-            this.arrPoints = new Points[3];
-            for (int i = 0; i < arrPoints.Length - 1; i++)
+            triangleSides = new double[2];
+            int j = 0;
+            for (int i = 0; i < arrPoints.Length; i += 2)
             {
-                this.arrPoints[i].X = arrPoints[i];
-                this.arrPoints[i].Y = arrPoints[i + 1];
-                triangleSides[i] = Math.Sqrt((this.arrPoints[i + 1].X * this.arrPoints[i + 1].X - this.arrPoints[i].X * this.arrPoints[i + 1].X) + (this.arrPoints[i + 1].Y * this.arrPoints[i + 1].Y - this.arrPoints[i].Y * this.arrPoints[i].Y));
+                triangleSides[j] = Math.Sqrt((arrPoints[i + 1].X * arrPoints[i + 1].X - arrPoints[i].X * arrPoints[i + 1].X) + (arrPoints[i + 1].Y * arrPoints[i + 1].Y - arrPoints[i].Y * arrPoints[i].Y));
+                j++;
             }
+        }
+
+        public Triangle()
+        {
+            triangleSides = null;
         }
 
         public override double GetArea()
@@ -36,6 +32,9 @@ namespace Task.BLL
         {
             if (arrPoints == null)
                 throw new ArgumentNullException();
+
+            if (triangleSides == null)
+                setTriangleSides();
 
             double result = 0.0;
             for (int i = 0; i < arrPoints.Length - 1; i++)

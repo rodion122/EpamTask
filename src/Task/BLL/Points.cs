@@ -13,8 +13,8 @@
 
         public double Y
         {
-            get => Y;
-            set => Y = value;
+            get => y;
+            set => y = value;
         }
     }
 }

@@ -44,6 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\Circle.cs" />
+    <Compile Include="BLL\CreateCircle.cs" />
+    <Compile Include="BLL\CreateTriangle.cs" />
+    <Compile Include="BLL\ICreateGeometryFigure.cs" />
     <Compile Include="BLL\GeometryFigure.cs" />
     <Compile Include="BLL\Points.cs" />
     <Compile Include="BLL\Triangle.cs" />
