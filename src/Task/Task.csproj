@@ -50,6 +50,7 @@
     <Compile Include="BLL\GeometryFigure.cs" />
     <Compile Include="BLL\Points.cs" />
     <Compile Include="BLL\Triangle.cs" />
+    <Compile Include="BLL\Validation.cs" />
     <Compile Include="DAL\FileManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -57,5 +58,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
