@@ -43,6 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\Circle.cs" />
+    <Compile Include="BLL\GeometryFigure.cs" />
+    <Compile Include="BLL\Points.cs" />
+    <Compile Include="BLL\Triangle.cs" />
     <Compile Include="DAL\FileManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
