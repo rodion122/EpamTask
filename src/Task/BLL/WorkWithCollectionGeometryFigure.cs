@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Task.DAL;
 
 namespace Task.BLL.GeometryFigure
@@ -46,7 +44,6 @@ namespace Task.BLL.GeometryFigure
                             builderFigure = new CreateCircle();
                             forSetCoords = builderFigure.FactoryMethod();
                             forSetCoords.SerArrPoints(informationAfterConvert);
-                            forSetCoords.TypeFigure = "Circle";
                             figures.Add(forSetCoords);
                             break;
 
@@ -56,7 +53,6 @@ namespace Task.BLL.GeometryFigure
                             builderFigure = new CreateTriangle();
                             forSetCoords = builderFigure.FactoryMethod();
                             forSetCoords.SerArrPoints(informationAfterConvert);
-                            forSetCoords.TypeFigure = "Triangle";
                             figures.Add(forSetCoords);
                             break;
 
@@ -66,7 +62,6 @@ namespace Task.BLL.GeometryFigure
                             builderFigure = new CreateTrapeze();
                             forSetCoords = builderFigure.FactoryMethod();
                             forSetCoords.SerArrPoints(informationAfterConvert);
-                            forSetCoords.TypeFigure = "Trapeze";
                             figures.Add(forSetCoords);
                             break;
 
@@ -76,7 +71,6 @@ namespace Task.BLL.GeometryFigure
                             builderFigure = new CreateRectangle();
                             forSetCoords = builderFigure.FactoryMethod();
                             forSetCoords.SerArrPoints(informationAfterConvert);
-                            forSetCoords.TypeFigure = "Rectangle";
                             figures.Add(forSetCoords);
                             break;
 
@@ -89,7 +83,6 @@ namespace Task.BLL.GeometryFigure
                             builderFigure = new CreatePolygonal();
                             forSetCoords = builderFigure.FactoryMethod();
                             forSetCoords.SerArrPoints(informationAfterConvert);
-                            forSetCoords.TypeFigure = "Polygonal";
                             figures.Add(forSetCoords);
                             break;
 

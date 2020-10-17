@@ -7,6 +7,7 @@ namespace Task.BLL.GeometryFigure
         private double radius;
         public Circle()
         {
+            TypeFigure = "Circle";
         }
         
         public double Radius 

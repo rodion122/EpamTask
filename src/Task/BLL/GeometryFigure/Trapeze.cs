@@ -32,6 +32,7 @@ namespace Task.BLL.GeometryFigure
         public Trapeze()
         {
             figureSides = null;
+            TypeFigure = "Trapeze";
         }
 
         public override double GetArea()

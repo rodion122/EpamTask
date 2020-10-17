@@ -1,5 +1,4 @@
-﻿
-namespace Task.BLL.GeometryFigure
+﻿namespace Task.BLL.GeometryFigure
 {
     class CreateRectangle : ICreateGeometryFigure
     {

@@ -2,6 +2,12 @@
 {
     class Polygonal : GeometricFigureWithSides
     {
+        public Polygonal()
+        {
+            figureSides = null;
+            TypeFigure = "Polygonal";
+        }
+
         public override double GetArea()
         {
             double result = arrPoints[arrPoints.Length - 1].X * arrPoints[0].Y;

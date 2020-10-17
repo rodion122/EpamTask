@@ -7,6 +7,7 @@ namespace Task.BLL.GeometryFigure
         public Triangle()
         {
             figureSides = null;
+            TypeFigure = "Trapeze";
         }
 
         public override double GetArea()
@@ -17,7 +18,7 @@ namespace Task.BLL.GeometryFigure
 
         protected override void setArrFigureSides()
         {
-            figureSides = new double[3];   
+            figureSides = new double[arrPoints.Length];   
         }
     }
 }
