@@ -43,18 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLL\Circle.cs" />
-    <Compile Include="BLL\CreateCircle.cs" />
-    <Compile Include="BLL\CreateTriangle.cs" />
-    <Compile Include="BLL\GeometricFigureWithSides.cs" />
-    <Compile Include="BLL\ICreateGeometryFigure.cs" />
-    <Compile Include="BLL\GeometryFigure.cs" />
-    <Compile Include="BLL\Intersections.cs" />
+    <Compile Include="BLL\FactoryMethod\CreateCircle.cs" />
+    <Compile Include="BLL\FactoryMethod\CreateTriangle.cs" />
+    <Compile Include="BLL\FactoryMethod\ICreateGeometryFigure.cs" />
+    <Compile Include="BLL\GeometryFigure\Circle.cs" />
+    <Compile Include="BLL\GeometryFigure\GeometricFigureWithSides.cs" />
+    <Compile Include="BLL\GeometryFigure\GeometryFigure.cs" />
+    <Compile Include="BLL\GeometryFigure\Rectangle.cs" />
+    <Compile Include="BLL\GeometryFigure\Trapeze.cs" />
+    <Compile Include="BLL\GeometryFigure\Triangle.cs" />
     <Compile Include="BLL\Points.cs" />
-    <Compile Include="BLL\Rectangle.cs" />
-    <Compile Include="BLL\Trapeze.cs" />
-    <Compile Include="BLL\Triangle.cs" />
-    <Compile Include="BLL\Validation.cs" />
+    <Compile Include="BLL\Validation\Intersections.cs" />
+    <Compile Include="BLL\Validation\Validation.cs" />
     <Compile Include="DAL\FileManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -62,8 +62,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BLL\Validation\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
