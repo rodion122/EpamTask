@@ -88,7 +88,7 @@ namespace Task.BLL
             
             Triangle triangle = new Triangle();
             triangle.SerArrPoints(coords.Where(i => Array.IndexOf(coords, i) % 2 == 0).ToArray(), coords.Where(i => Array.IndexOf(coords, i) % 2 != 0).ToArray());
-            double[] siedesTriangle = triangle.TriangleSides;
+            double[] siedesTriangle = triangle.GetFigureSides();
             double result = 0;
             for (int i = 0; i < siedesTriangle.Length; i++)
             {
@@ -102,5 +102,6 @@ namespace Task.BLL
 
             return false;
         }
+
     }
 }
