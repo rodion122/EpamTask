@@ -29,7 +29,7 @@ namespace Task.BLL
             figureSides = result;
         }
 
-        Trapeze()
+        public Trapeze()
         {
             figureSides = null;
         }

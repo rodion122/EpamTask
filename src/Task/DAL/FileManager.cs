@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Task.DAL
 {
@@ -13,7 +14,9 @@ namespace Task.DAL
 
 			while (!read.EndOfStream)
 				result.Append(read.ReadLine() + "\n");
+			
 			read.Close();
+			Regex.Replace(result.ToString().Trim(), @"\s+", " ");
 			return result.ToString().TrimEnd().Split('\n');
 		}
 

@@ -2,7 +2,7 @@
 {
     class Rectangle : GeometricFigureWithSides
     {
-        Rectangle()
+        public Rectangle()
         {
             figureSides = null;
         }

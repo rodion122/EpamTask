@@ -44,8 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\FactoryMethod\CreateCircle.cs" />
+    <Compile Include="BLL\FactoryMethod\CreateRectangle.cs" />
+    <Compile Include="BLL\FactoryMethod\CreateTrapeze.cs" />
     <Compile Include="BLL\FactoryMethod\CreateTriangle.cs" />
     <Compile Include="BLL\FactoryMethod\ICreateGeometryFigure.cs" />
+    <Compile Include="BLL\FigureService.cs" />
     <Compile Include="BLL\GeometryFigure\Circle.cs" />
     <Compile Include="BLL\GeometryFigure\GeometricFigureWithSides.cs" />
     <Compile Include="BLL\GeometryFigure\GeometryFigure.cs" />
@@ -55,6 +58,7 @@
     <Compile Include="BLL\Points.cs" />
     <Compile Include="BLL\Validation\Intersections.cs" />
     <Compile Include="BLL\Validation\Validation.cs" />
+    <Compile Include="BLL\WorkWithCollectionGeometryFigure.cs" />
     <Compile Include="DAL\FileManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

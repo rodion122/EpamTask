@@ -8,7 +8,10 @@ namespace Task.BLL
 {
     class Validation
     {
-        public bool IsValidInputData(string arrData)
+        private Intersections checkIntersection = new Intersections();
+        private Info infomration = new Info();
+
+        public static bool IsValidInputData(string arrData)
         {
             string[] testArr = arrData.Trim().Split(' ').ToArray();
             for (int i = 0; i < testArr.Length; i++)
@@ -26,37 +29,24 @@ namespace Task.BLL
                 int cointer = 0;
                 int i2 = 1;
                 int j2 = 1;
-                int cointerX = 0;
-                int cointerY = 0;
                 for (int i = 0; i < testArr.Length -1; i+=2, i2 +=2)
                 {
                     cointer = 0;
                     i2 = 1;
                     j2 = 1;
-                    cointerX = 0;
-                    cointerY = 0;
                     for (int j = 0; j < testArr.Length - 1; j += 2, j2 += 2)
                     {
                         if (testArr[i] == testArr[j] && testArr[i2] == testArr[j2])
                             cointer++;
-
-                        if (testArr[i] == testArr[j])
-                            cointerX++;
-
-                        if (testArr[i2] == testArr[j2])
-                            cointerY++;
                     }
                     if (cointer > 1)
-                        return false;
-
-                    if (cointerX == testArr.Length / 2 || cointerY == testArr.Length / 2)
                         return false;
                 }
             }
             return true;
         }
 
-        public bool TryParseData(string arrData, out double[] arrValidData)
+        public static bool TryParseData(string arrData, out double[] arrValidData)
         {
             if (IsValidInputData(arrData))
             {
@@ -103,5 +93,33 @@ namespace Task.BLL
             return false;
         }
 
+        public bool IsLinesInThisFigureIntersection(double[] coords)
+        {
+            Points[] points = new Points[coords.Length / 2];
+            for (int i = 0; i < coords.Length; i += 2)
+            {
+                points[i] = new Points();
+                points[i].X = coords[i];
+                points[i].Y = coords[i + 1];
+            }
+
+            //for (int i = 0; i < length; i += 2)
+            //{
+            //    for (int j = 0; j < length; j++)
+            //    {
+
+            //    }
+            //}
+                //if (IsLinesIntersection(points[i], points[i + 1], points[i + 2], points[i + 3]))
+                //    return true;
+
+            return false;
+        }
+
+        public bool IsLinesIntersection(Points firstBegin, Points firstEnd, Points secondBegin, Points secondEnd)
+        {
+            Points cross = new Points();
+           return checkIntersection.LineLine(firstBegin, firstEnd, secondBegin, secondEnd,out cross,out infomration);
+        }
     }
 }
