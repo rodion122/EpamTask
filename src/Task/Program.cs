@@ -1,4 +1,4 @@
-﻿using Task.BLL;
+﻿using Task.BLL.GeometryFigure;
 
 namespace Task
 {

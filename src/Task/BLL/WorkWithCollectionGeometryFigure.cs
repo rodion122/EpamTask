@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Task.DAL;
-using Task.BLL.FactoryMethod;
 
-namespace Task.BLL
+namespace Task.BLL.GeometryFigure
 {
     class WorkWithCollectionGeometryFigure
     {
@@ -84,6 +83,16 @@ namespace Task.BLL
                         case "Quadrangle":
                             break;
 
+                        case "Polygonal":
+                            // ..
+
+                            builderFigure = new CreatePolygonal();
+                            forSetCoords = builderFigure.FactoryMethod();
+                            forSetCoords.SerArrPoints(informationAfterConvert);
+                            forSetCoords.TypeFigure = "Polygonal";
+                            figures.Add(forSetCoords);
+                            break;
+
                         case "None":
                             break;
                     }
@@ -122,6 +131,7 @@ namespace Task.BLL
             return result;
         }
 
+        // need fixed!!!
         public string FindTypeFigureWithMaxAvaragePerimentr()
         {
             if (figures == null)

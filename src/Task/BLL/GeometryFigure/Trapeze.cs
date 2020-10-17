@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace Task.BLL
+namespace Task.BLL.GeometryFigure
 {
     class Trapeze : GeometricFigureWithSides
     {

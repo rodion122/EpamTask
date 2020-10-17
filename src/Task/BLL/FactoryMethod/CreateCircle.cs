@@ -1,4 +1,4 @@
-﻿namespace Task.BLL
+﻿namespace Task.BLL.GeometryFigure
 {
     class CreateCircle : ICreateGeometryFigure
     {

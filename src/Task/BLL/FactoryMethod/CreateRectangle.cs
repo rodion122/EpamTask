@@ -1,5 +1,5 @@
 ﻿
-namespace Task.BLL.FactoryMethod
+namespace Task.BLL.GeometryFigure
 {
     class CreateRectangle : ICreateGeometryFigure
     {

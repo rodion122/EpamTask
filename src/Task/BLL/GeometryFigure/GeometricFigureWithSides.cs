@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Task.BLL
+namespace Task.BLL.GeometryFigure
 {
     abstract class GeometricFigureWithSides : GeometryFigure
     {

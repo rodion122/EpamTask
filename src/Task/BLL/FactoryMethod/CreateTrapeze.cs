@@ -1,4 +1,4 @@
-﻿namespace Task.BLL.FactoryMethod
+﻿namespace Task.BLL.GeometryFigure
 {
     class CreateTrapeze : ICreateGeometryFigure
     {
