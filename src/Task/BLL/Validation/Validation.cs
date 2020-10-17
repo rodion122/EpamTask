@@ -77,7 +77,7 @@ namespace Task.BLL
                 return false;
             
             Triangle triangle = new Triangle();
-            triangle.SerArrPoints(coords.Where(i => Array.IndexOf(coords, i) % 2 == 0).ToArray(), coords.Where(i => Array.IndexOf(coords, i) % 2 != 0).ToArray());
+            triangle.SerArrPoints(coords);
             double[] siedesTriangle = triangle.GetFigureSides();
             double result = 0;
             for (int i = 0; i < siedesTriangle.Length; i++)

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Task.BLL;
 
 namespace Task
 {
@@ -10,6 +6,13 @@ namespace Task
     {
         static void Main()
         {
+            WorkWithCollectionGeometryFigure test = new WorkWithCollectionGeometryFigure();
+            test.ReadInformationInFile(@"D:\programms\Git\EpamTask\src\Task\FeguresCoords.txt");
+            test.CreateListFigures();
+            test.AverageAreaOfAllShapes();
+            test.AveragePerimeterOfAllShapes();
+            test.FindFigureWithLargestArea();
+            test.FindTypeFigureWithMaxAvaragePerimentr();
         }
     }
 }

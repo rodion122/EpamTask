@@ -22,5 +22,14 @@ namespace Task.BLL
         public override double GetArea() => Math.PI * Radius * Radius;
 
         public override double GetPerimeter() => 2 * Math.PI * Radius;
+
+        public override void SerArrPoints(double[] arrPoints)
+        {
+            this.arrPoints = new Points[1];
+            this.arrPoints[0] = new Points();
+            this.arrPoints[0].X = arrPoints[0];
+            this.arrPoints[0].Y = arrPoints[1];
+            this.radius = arrPoints[2];
+        }
     }
 }

@@ -17,7 +17,7 @@ namespace Task.BLL
 
         protected override void setArrFigureSides()
         {
-            figureSides = new double[2];   
+            figureSides = new double[3];   
         }
     }
 }

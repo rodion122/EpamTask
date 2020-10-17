@@ -12,11 +12,13 @@ namespace Task.BLL
     {
         private string[] uploadedInformation;
         private List<GeometryFigure> figures = new List<GeometryFigure>();
+        private GeometryFigure forSetCoords;
         private FigureService helper = new FigureService();
         private ICreateGeometryFigure builderFigure;
 
         public WorkWithCollectionGeometryFigure()
         {
+            forSetCoords = null;
             uploadedInformation = null;
             builderFigure = null;
         }
@@ -43,28 +45,40 @@ namespace Task.BLL
                             // ...
                             
                             builderFigure = new CreateCircle();
-                            figures.Add(builderFigure.FactoryMethod());
+                            forSetCoords = builderFigure.FactoryMethod();
+                            forSetCoords.SerArrPoints(informationAfterConvert);
+                            forSetCoords.TypeFigure = "Circle";
+                            figures.Add(forSetCoords);
                             break;
 
                         case "Triangle":
                             // ..
 
                             builderFigure = new CreateTriangle();
-                            figures.Add(builderFigure.FactoryMethod());
+                            forSetCoords = builderFigure.FactoryMethod();
+                            forSetCoords.SerArrPoints(informationAfterConvert);
+                            forSetCoords.TypeFigure = "Triangle";
+                            figures.Add(forSetCoords);
                             break;
 
                         case "Trapeze":
                             // ...
 
                             builderFigure = new CreateTrapeze();
-                            figures.Add(builderFigure.FactoryMethod());
+                            forSetCoords = builderFigure.FactoryMethod();
+                            forSetCoords.SerArrPoints(informationAfterConvert);
+                            forSetCoords.TypeFigure = "Trapeze";
+                            figures.Add(forSetCoords);
                             break;
 
                         case "Rectangle":
                             // ...
 
                             builderFigure = new CreateRectangle();
-                            figures.Add(builderFigure.FactoryMethod());
+                            forSetCoords = builderFigure.FactoryMethod();
+                            forSetCoords.SerArrPoints(informationAfterConvert);
+                            forSetCoords.TypeFigure = "Rectangle";
+                            figures.Add(forSetCoords);
                             break;
 
                         case "Quadrangle":
@@ -108,12 +122,17 @@ namespace Task.BLL
             return result;
         }
 
-        //public string FindTypeFigureWithMaxAvaragePerimentr()
-        //{
-        //    if (figures == null)
-        //        throw new ArgumentNullException();
+        public string FindTypeFigureWithMaxAvaragePerimentr()
+        {
+            if (figures == null)
+                throw new ArgumentNullException();
 
-        //    IEnumerable<IGrouping<string, Task.BLL.GeometryFigure> figure = figures.GroupBy(i => i.TypeFigure).Select(i => i.Average(j=>j.GetArea()));
-        //}
+            var figuresResult = figures.GroupBy(i => i.TypeFigure).Select(i => new { i.Key, Square = i.Average( j=> j.GetArea())});
+            foreach (var item in figuresResult)
+            {
+                Console.WriteLine(item);
+            }
+            return null;
+        }
     }
 }

@@ -22,11 +22,13 @@ namespace Task.BLL
             if(arrCoords.Length == 8)
             {
                 Points[] points = new Points[arrCoords.Length / 2];
+                int cointer = 0;
                 for (int i = 0; i < arrCoords.Length; i += 2)
                 {
-                    points[i] = new Points();
-                    points[i].X = arrCoords[i];
-                    points[i].Y = arrCoords[i + 1];
+                    points[cointer] = new Points();
+                    points[cointer].X = arrCoords[i];
+                    points[cointer].Y = arrCoords[i + 1];
+                    cointer++;
                 }
                 // реализация определния конкретной фигуры...
                 // ...
