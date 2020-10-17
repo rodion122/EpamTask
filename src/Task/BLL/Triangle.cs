@@ -22,6 +22,8 @@ namespace Task.BLL
             triangleSides = null;
         }
 
+        public double[] TriangleSides { get => triangleSides; }
+
         public override double GetArea()
         {
             double halfPerimetr = GetPerimeter() / 2;
