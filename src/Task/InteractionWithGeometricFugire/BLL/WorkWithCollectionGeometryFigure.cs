@@ -53,8 +53,6 @@ namespace InteractionWithGeometricFugire.BLL
                             break;
 
                         case "Trapeze":
-                            // ...
-
                             builderFigure = new CreateTrapeze();
                             successfulCreateFigure = true;
                             break;
