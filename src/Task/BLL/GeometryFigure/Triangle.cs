@@ -7,7 +7,7 @@ namespace Task.BLL.GeometryFigure
         public Triangle()
         {
             figureSides = null;
-            TypeFigure = "Trapeze";
+            TypeFigure = "Triangle";
         }
 
         public override double GetArea()

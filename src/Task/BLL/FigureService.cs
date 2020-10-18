@@ -14,20 +14,20 @@ namespace Task.BLL
             if (arrCoords.Length == 6)
                 return "Triangle";
 
+            Points[] points = new Points[arrCoords.Length / 2];
+            int cointer = 0;
+            bool IsMetCondition = true;
+
+            for (int i = 0; i < arrCoords.Length; i += 2)
+            {
+                points[cointer] = new Points();
+                points[cointer].X = arrCoords[i];
+                points[cointer].Y = arrCoords[i + 1];
+                cointer++;
+            }
+
             if (arrCoords.Length == 8)
             {
-                Points[] points = new Points[arrCoords.Length / 2];
-                int cointer = 0;
-                bool IsMetCondition = true;
-
-                for (int i = 0; i < arrCoords.Length; i += 2)
-                {
-                    points[cointer] = new Points();
-                    points[cointer].X = arrCoords[i];
-                    points[cointer].Y = arrCoords[i + 1];
-                    cointer++;
-                }
-
                 for (int i = 0; i < 2; i++)
                 {
                     if (!WorkWithCoords.IsLinePerpendicular(points[i], points[i + 1], points[i + 1], points[i + 2]))
@@ -45,26 +45,25 @@ namespace Task.BLL
                     if (!WorkWithCoords.IsLinePerpendicular(points[3], points[0], points[0], points[1]))
                         IsMetCondition = false;
 
-                    // square???
                     if (IsMetCondition)
                         return "Rectangle";
                 }
                 else
                     IsMetCondition = true;
 
-                if ((WorkWithCoords.IsLineParallel(points[0], points[1], points[2], points[3]) && !WorkWithCoords.IsLineParallel(points[1], points[2], points[3], points[0])) || (!WorkWithCoords.IsLineParallel(points[0], points[1], points[2], points[3]) && WorkWithCoords.IsLineParallel(points[1], points[2], points[3], points[0])))
-                    return "Trapeze";
+    //            if (WorkWithCoords.ThisFigureNotHaveMathc(points))
+    //            {
+                    if ((WorkWithCoords.IsLineParallel(points[0], points[1], points[2], points[3]) && !WorkWithCoords.IsLineParallel(points[1], points[2], points[3], points[0])) || (!WorkWithCoords.IsLineParallel(points[0], points[1], points[2], points[3]) && WorkWithCoords.IsLineParallel(points[1], points[2], points[3], points[0])))
+                        return "Trapeze";
 
-                if (WorkWithCoords.IsLineParallel(points[0], points[1], points[2], points[3]) && WorkWithCoords.IsLineParallel(points[1], points[2], points[3], points[0]))
-                    return "Parallelogram";
+                    if (WorkWithCoords.IsLineParallel(points[0], points[1], points[2], points[3]) && WorkWithCoords.IsLineParallel(points[1], points[2], points[3], points[0]))
+                        return "Parallelogram";
 
-                // нужна проверка на пересечение сторон 
-                return "Quadrangle";
-                
+                    return "Quadrangle";
+     //           }
             }
 
-            // нужна проверка на пересечение сторон
-            if (arrCoords.Length > 8)
+            if (arrCoords.Length > 8) // && WorkWithCoords.ThisFigureNotHaveMathc(points)
                 return "Polygonal";
 
             return "None";
@@ -91,28 +90,20 @@ namespace Task.BLL
             if (figures == null)
                 throw new ArgumentNullException();
 
-            IEnumerable<GeometryFigure.GeometryFigure> necessaryFigure = figures.Where(i => i.GetArea() == figures.Max(j => j.GetArea()));
+            GeometryFigure.GeometryFigure necessaryFigure = figures.Where(i => i.GetArea() == figures.Max(j => j.GetArea())).First();
             string result = null;
-            foreach (var item in necessaryFigure)
-            {
-                result += "Type figure: " + item.TypeFigure + ";";
-                result += "Area: " + item.GetArea() + "\n\n";
-            }
+            result += "Type figure: " + necessaryFigure.TypeFigure + "; ";
+            result += "Area: " + necessaryFigure.GetArea();
             return result;
         }
 
-        // need fixed!!!
         public static string FindTypeFigureWithMaxAvaragePerimentr(List<GeometryFigure.GeometryFigure> figures)
         {
             if (figures == null)
                 throw new ArgumentNullException();
 
-            var figuresResult = figures.GroupBy(i => i.TypeFigure).Select(i => new { i.Key, Square = i.Average(j => j.GetArea()) });
-            foreach (var item in figuresResult)
-            {
-                Console.WriteLine(item);
-            }
-            return null;
+            var figuresResult = figures.GroupBy(i => i.TypeFigure).Select(i => new { i.Key, Perimentr = i.Average(j => j.GetPerimeter())}).OrderByDescending(i => i.Perimentr).First(); 
+            return (figuresResult.Key + " " + figuresResult.Perimentr).ToString();
         }
     }
 }
