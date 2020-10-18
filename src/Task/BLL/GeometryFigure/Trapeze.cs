@@ -1,5 +1,4 @@
 ﻿using System;
-using Task.BLL.Validation;
 
 namespace Task.BLL.GeometryFigure
 {
@@ -54,12 +53,6 @@ namespace Task.BLL.GeometryFigure
 
         public override double GetArea()
         {
-            //  нужно конкретные стороны :
-            // a - верх == 0
-            // b - низ == 1 
-            // уже не важно:
-            // c - лево == 2
-            // d - право == 3
             setOrderSides();
             return ((figureSides[0] + figureSides[1]) / 2 ) * Math.Sqrt(figureSides[2] * figureSides[2] - Math.Pow(((figureSides[1] - figureSides[0]) * (figureSides[1] - figureSides[0]) + figureSides[2] * figureSides[2] - figureSides[3] * figureSides[3]) / (2 * (figureSides[1] - figureSides[0])), 2));
         }

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Task.BLL.GeometryFigure
+﻿namespace Task.BLL.GeometryFigure
 {
     abstract class GeometryFigure
     {

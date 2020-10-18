@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Task.DAL;
 
 namespace Task.BLL.GeometryFigure
@@ -9,18 +8,17 @@ namespace Task.BLL.GeometryFigure
     {
         private string[] uploadedInformation;
         private List<GeometryFigure> figures = new List<GeometryFigure>();
-        private GeometryFigure forSetCoords;
-        private FigureService helper = new FigureService();
+        private GeometryFigure collectionItem;
         private ICreateGeometryFigure builderFigure;
 
         public WorkWithCollectionGeometryFigure()
         {
-            forSetCoords = null;
+            collectionItem = null;
             uploadedInformation = null;
             builderFigure = null;
         }
 
-        public void ReadInformationInFile(string route)
+        public void ReadInformationFromFile(string route)
         {
              uploadedInformation = FileManager.ReadInformation(route);
         }
@@ -37,7 +35,7 @@ namespace Task.BLL.GeometryFigure
                 successfulCreateFigure = false;
                 if (Validation.TryParseData(uploadedInformation[i], out informationAfterConvert))
                 {
-                    switch (helper.DefineFigure(informationAfterConvert))
+                    switch (FigureService.DefineFigure(informationAfterConvert))
                     {
                         case "Circle":
                             if (!Validation.IsValidCircle(informationAfterConvert))
@@ -86,57 +84,14 @@ namespace Task.BLL.GeometryFigure
 
                     if(successfulCreateFigure)
                     {
-                        forSetCoords = builderFigure.FactoryMethod();
-                        forSetCoords.SerArrPoints(informationAfterConvert);
-                        figures.Add(forSetCoords);
+                        collectionItem = builderFigure.FactoryMethod();
+                        collectionItem.SerArrPoints(informationAfterConvert);
+                        figures.Add(collectionItem);
                     }
                 }
             }
         }
 
-        public double AveragePerimeterOfAllShapes()
-        {
-            if (figures == null)
-                throw new ArgumentNullException();
-
-            return figures.Average(i => i.GetPerimeter());
-        }
-
-        public double AverageAreaOfAllShapes()
-        {
-            if (figures == null)
-                throw new ArgumentNullException();
-
-            return figures.Average(i => i.GetArea());
-        }
-
-        public string FindFigureWithLargestArea()
-        {
-            if (figures == null)
-                throw new ArgumentNullException();
-
-            IEnumerable<GeometryFigure> necessaryFigure = figures.Where(i => i.GetArea() == figures.Max(j => j.GetArea()));
-            string result = null;
-            foreach (var item in necessaryFigure)
-            {
-                result += "Type figure: " + item.TypeFigure + ";";
-                result += "Area: " + item.GetArea() + "\n\n";
-            }
-            return result;
-        }
-
-        // need fixed!!!
-        public string FindTypeFigureWithMaxAvaragePerimentr()
-        {
-            if (figures == null)
-                throw new ArgumentNullException();
-
-            var figuresResult = figures.GroupBy(i => i.TypeFigure).Select(i => new { i.Key, Square = i.Average( j=> j.GetArea())});
-            foreach (var item in figuresResult)
-            {
-                Console.WriteLine(item);
-            }
-            return null;
-        }
+        public List<GeometryFigure> GetListFigures() => figures;
     }
 }

@@ -1,4 +1,5 @@
-﻿using Task.BLL.GeometryFigure;
+﻿using Task.BLL;
+using Task.BLL.GeometryFigure;
 
 namespace Task
 {
@@ -7,13 +8,13 @@ namespace Task
         static void Main()
         {
             WorkWithCollectionGeometryFigure test = new WorkWithCollectionGeometryFigure();
-            test.ReadInformationInFile(@"D:\programms\Git\EpamTask\src\Task\FeguresCoords.txt");
+            test.ReadInformationFromFile(@"D:\programms\Git\EpamTask\src\Task\FeguresCoords.txt");
             test.CreateListFigures();
-            test.AverageAreaOfAllShapes();
-            test.AveragePerimeterOfAllShapes();
-            test.FindFigureWithLargestArea();
+            FigureService.AverageAreaOfAllShapes(test.GetListFigures());
+            FigureService.AveragePerimeterOfAllShapes(test.GetListFigures());
+            FigureService.FindFigureWithLargestArea(test.GetListFigures());
             // надо исправить! 
-            test.FindTypeFigureWithMaxAvaragePerimentr();
+            FigureService.FindTypeFigureWithMaxAvaragePerimentr(test.GetListFigures());
         }
     }
 }

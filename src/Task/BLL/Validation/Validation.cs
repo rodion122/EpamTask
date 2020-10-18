@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Task.BLL.Validation;
+﻿using System.Linq;
+using Task.BLL.GeometryFigure;
 
-namespace Task.BLL.GeometryFigure
+namespace Task.BLL
 {
-    class Validation
+    static class Validation
     {
-        private Intersections checkIntersection = new Intersections();
-        private Info infomration = new Info();
-
         public static bool IsValidInputData(string arrData)
         {
             string[] testArr = arrData.Trim().Split(' ').ToArray();

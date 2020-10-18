@@ -1,5 +1,4 @@
-﻿using Task.BLL.Validation;
-using System;
+﻿using System;
 
 namespace Task.BLL.GeometryFigure
 {

@@ -62,10 +62,9 @@
     <Compile Include="BLL\GeometryFigure\Trapeze.cs" />
     <Compile Include="BLL\GeometryFigure\Triangle.cs" />
     <Compile Include="BLL\Points.cs" />
-    <Compile Include="BLL\Validation\Intersections.cs" />
     <Compile Include="BLL\Validation\Validation.cs" />
-    <Compile Include="BLL\Validation\WorkWithCoords.cs" />
     <Compile Include="BLL\WorkWithCollectionGeometryFigure.cs" />
+    <Compile Include="BLL\WorkWithCoords.cs" />
     <Compile Include="DAL\FileManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
