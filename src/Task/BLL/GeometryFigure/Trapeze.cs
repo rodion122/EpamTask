@@ -54,7 +54,7 @@ namespace Task.BLL.GeometryFigure
         public override double GetArea()
         {
             setOrderSides();
-            return ((figureSides[0] + figureSides[1]) / 2 ) * Math.Sqrt(figureSides[2] * figureSides[2] - Math.Pow(((figureSides[1] - figureSides[0]) * (figureSides[1] - figureSides[0]) + figureSides[2] * figureSides[2] - figureSides[3] * figureSides[3]) / (2 * (figureSides[1] - figureSides[0])), 2));
+            return ((figureSides[0] + figureSides[1]) / 2 ) * Math.Sqrt(figureSides[2] * figureSides[2] - ( Math.Pow((((figureSides[1] - figureSides[0]) * (figureSides[1] - figureSides[0]) + figureSides[2] * figureSides[2] - figureSides[3] * figureSides[3]) / (2 * (figureSides[1] - figureSides[0]))), 2)));
         }
     }
 }

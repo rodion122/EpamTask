@@ -1,4 +1,5 @@
-﻿namespace Task.BLL.GeometryFigure
+﻿
+namespace Task.BLL.GeometryFigure
 {
     class Polygonal : GeometricFigureWithSides
     {
@@ -17,7 +18,7 @@
             for (int i = 0; i < arrPoints.Length - 1; i++)
                 result -= arrPoints[i + 1].X * arrPoints[i].Y;
             result -= arrPoints[0].X * arrPoints[arrPoints.Length - 1].Y;
-            return result * 0.5;
+            return System.Math.Abs(result * 0.5);
         }
     }
 }
