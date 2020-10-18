@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\FactoryMethod\CreateCircle.cs" />
+    <Compile Include="BLL\FactoryMethod\CreateParallelogram.cs" />
     <Compile Include="BLL\FactoryMethod\CreatePolygonal.cs" />
     <Compile Include="BLL\FactoryMethod\CreateQuadrangle.cs" />
     <Compile Include="BLL\FactoryMethod\CreateRectangle.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="BLL\GeometryFigure\Circle.cs" />
     <Compile Include="BLL\GeometryFigure\GeometricFigureWithSides.cs" />
     <Compile Include="BLL\GeometryFigure\GeometryFigure.cs" />
+    <Compile Include="BLL\GeometryFigure\Parallelogram.cs" />
     <Compile Include="BLL\GeometryFigure\Polygonal.cs" />
     <Compile Include="BLL\GeometryFigure\Quadrangle.cs" />
     <Compile Include="BLL\GeometryFigure\Rectangle.cs" />

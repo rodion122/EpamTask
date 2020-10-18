@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Linq;
+using Task.BLL.Validation;
 
 namespace Task.BLL.GeometryFigure
 {
@@ -9,24 +9,40 @@ namespace Task.BLL.GeometryFigure
         private void setOrderSides()
         {
             double[] result = new double[4];
-            Points[] helper = new Points[2];
 
-            helper = arrPoints.Where(j => j.Y == arrPoints.Max(i => i.Y)).ToArray();
-            result[0] = Math.Sqrt(Math.Abs((helper[0].X * helper[0].X - helper[1].X * helper[1].X) + (helper[0].Y * helper[0].Y - helper[1].Y * helper[1].Y)));
-            
-            helper = arrPoints.Where(j => j.Y == arrPoints.Min(i => i.Y)).ToArray();
-            result[1] = Math.Sqrt(Math.Abs((helper[0].X * helper[0].X - helper[1].X * helper[1].X) + (helper[0].Y * helper[0].Y - helper[1].Y * helper[1].Y)));
+            if(WorkWithCoords.IsLineParallel(arrPoints[0], arrPoints[1], arrPoints[2], arrPoints[3]))
+            {
+                if(Math.Sqrt( Math.Pow(Math.Abs(arrPoints[0].X  - arrPoints[1].X), 2)  + Math.Pow(Math.Abs(arrPoints[0].Y - arrPoints[1].Y), 2)) < Math.Sqrt(Math.Pow(Math.Abs(arrPoints[2].X - arrPoints[3].X), 2) + Math.Pow(Math.Abs(arrPoints[2].Y - arrPoints[3].Y), 2)))
+                {
+                    result[0] = Math.Sqrt(Math.Pow(Math.Abs(arrPoints[0].X - arrPoints[1].X), 2) + Math.Pow(Math.Abs(arrPoints[0].Y - arrPoints[1].Y), 2));
+                    result[1] = Math.Sqrt(Math.Pow(Math.Abs(arrPoints[2].X - arrPoints[3].X), 2) + Math.Pow(Math.Abs(arrPoints[2].Y - arrPoints[3].Y), 2));
 
-            arrPoints = arrPoints.OrderBy(i => i.X).ToArray();
-            helper[0] = arrPoints[0];
-            helper[1] = arrPoints[1];
-            result[2] = Math.Sqrt(Math.Abs((helper[0].X * helper[0].X - helper[1].X * helper[1].X) + (helper[0].Y * helper[0].Y - helper[1].Y * helper[1].Y)));
+                }
+                else
+                {
+                    result[0] = Math.Sqrt(Math.Pow(Math.Abs(arrPoints[2].X - arrPoints[3].X), 2) + Math.Pow(Math.Abs(arrPoints[2].Y - arrPoints[3].Y), 2));
+                    result[1] = Math.Sqrt(Math.Pow(Math.Abs(arrPoints[0].X - arrPoints[1].X), 2) + Math.Pow(Math.Abs(arrPoints[0].Y - arrPoints[1].Y), 2));
+                }
+                result[2] = Math.Sqrt(Math.Pow(Math.Abs(arrPoints[1].X - arrPoints[2].X), 2) + Math.Pow(Math.Abs(arrPoints[1].Y - arrPoints[2].Y), 2));
+                result[3] = Math.Sqrt(Math.Pow(Math.Abs(arrPoints[0].X - arrPoints[3].X), 2) + Math.Pow(Math.Abs(arrPoints[0].Y - arrPoints[3].Y), 2));
+            }
 
-            arrPoints = arrPoints.Reverse().ToArray();
-            helper[0] = arrPoints[0];
-            helper[1] = arrPoints[1];
-            result[3] = Math.Sqrt(Math.Abs((helper[0].X * helper[0].X - helper[1].X * helper[1].X) + (helper[0].Y * helper[0].Y - helper[1].Y * helper[1].Y)));
+            else 
+            {
+                if (Math.Sqrt(Math.Pow(Math.Abs(arrPoints[1].X - arrPoints[2].X), 2) + Math.Pow(Math.Abs(arrPoints[1].Y - arrPoints[2].Y), 2)) < Math.Sqrt(Math.Pow(Math.Abs(arrPoints[0].X - arrPoints[3].X), 2) + Math.Pow(Math.Abs(arrPoints[0].Y - arrPoints[3].Y), 2)))
+                {
+                    result[0] = Math.Sqrt(Math.Pow(Math.Abs(arrPoints[1].X - arrPoints[2].X), 2) + Math.Pow(Math.Abs(arrPoints[1].Y - arrPoints[2].Y), 2));
+                    result[1] = Math.Sqrt(Math.Pow(Math.Abs(arrPoints[0].X - arrPoints[3].X), 2) + Math.Pow(Math.Abs(arrPoints[0].Y - arrPoints[3].Y), 2));
 
+                }
+                else
+                {
+                    result[0] = Math.Sqrt(Math.Pow(Math.Abs(arrPoints[0].X - arrPoints[3].X), 2) + Math.Pow(Math.Abs(arrPoints[0].Y - arrPoints[3].Y), 2));
+                    result[1] = Math.Sqrt(Math.Pow(Math.Abs(arrPoints[1].X - arrPoints[2].X), 2) + Math.Pow(Math.Abs(arrPoints[1].Y - arrPoints[2].Y), 2));
+                }
+                result[2] = Math.Sqrt(Math.Pow(Math.Abs(arrPoints[0].X - arrPoints[1].X), 2) + Math.Pow(Math.Abs(arrPoints[0].Y - arrPoints[1].Y), 2));
+                result[3] = Math.Sqrt(Math.Pow(Math.Abs(arrPoints[2].X - arrPoints[3].X), 2) + Math.Pow(Math.Abs(arrPoints[2].Y - arrPoints[3].Y), 2));
+            }
             figureSides = result;
         }
 
@@ -41,6 +57,7 @@ namespace Task.BLL.GeometryFigure
             //  нужно конкретные стороны :
             // a - верх == 0
             // b - низ == 1 
+            // уже не важно:
             // c - лево == 2
             // d - право == 3
             setOrderSides();

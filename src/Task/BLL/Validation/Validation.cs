@@ -92,34 +92,5 @@ namespace Task.BLL.GeometryFigure
 
             return false;
         }
-
-        public bool IsLinesInThisFigureIntersection(double[] coords)
-        {
-            Points[] points = new Points[coords.Length / 2];
-            for (int i = 0; i < coords.Length; i += 2)
-            {
-                points[i] = new Points();
-                points[i].X = coords[i];
-                points[i].Y = coords[i + 1];
-            }
-
-            //for (int i = 0; i < length; i += 2)
-            //{
-            //    for (int j = 0; j < length; j++)
-            //    {
-
-            //    }
-            //}
-                //if (IsLinesIntersection(points[i], points[i + 1], points[i + 2], points[i + 3]))
-                //    return true;
-
-            return false;
-        }
-
-        public bool IsLinesIntersection(Points firstBegin, Points firstEnd, Points secondBegin, Points secondEnd)
-        {
-            Points cross = new Points();
-           return checkIntersection.LineLine(firstBegin, firstEnd, secondBegin, secondEnd,out cross,out infomration);
-        }
     }
 }

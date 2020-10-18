@@ -41,5 +41,11 @@ namespace Task.BLL.Validation
                 return true;
             return false;
         }
+
+        public static double GetCosBetweenTwoLine(Points pointFirstStart, Points pointFirstEnd, Points pointSecondStart, Points pointSecondEnd)
+        {
+            setCoefficients(pointFirstStart, pointFirstEnd, pointSecondStart, pointSecondEnd);
+            return (a1 * a2 + b1 * b2) / (Math.Sqrt(a1 * a1 + b1* b1) * Math.Sqrt(a2 * a2 + b2 * b2));
+        }
     }
 }

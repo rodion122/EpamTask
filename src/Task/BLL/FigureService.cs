@@ -58,7 +58,6 @@ namespace Task.BLL
                 if( (WorkWithCoords.IsLineParallel(points[0], points[1], points[2], points[3]) && !WorkWithCoords.IsLineParallel(points[1], points[2], points[3], points[0]) ) || (!WorkWithCoords.IsLineParallel(points[0], points[1], points[2], points[3]) && WorkWithCoords.IsLineParallel(points[1], points[2], points[3], points[0])) )
                     return "Trapeze";
 
-
                 if (WorkWithCoords.IsLineParallel(points[0], points[1], points[2], points[3]) && WorkWithCoords.IsLineParallel(points[1], points[2], points[3], points[0]))
                       return "Parallelogram";
 

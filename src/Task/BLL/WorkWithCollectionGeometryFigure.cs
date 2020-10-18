@@ -65,6 +65,11 @@ namespace Task.BLL.GeometryFigure
                             successfulCreateFigure = true;
                             break;
 
+                        case "Parallelogram":
+                            builderFigure = new CreateParallelogram();
+                            successfulCreateFigure = true;
+                            break;
+
                         case "Quadrangle":
                             builderFigure = new CreateQuadrangle();
                             successfulCreateFigure = true;
