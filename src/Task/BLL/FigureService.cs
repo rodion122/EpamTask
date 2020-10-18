@@ -15,7 +15,7 @@ namespace Task.BLL
             if (arrCoords.Length == 6)
                 return "Triangle";
 
-            if(arrCoords.Length == 8)
+            if (arrCoords.Length == 8)
             {
                 Points[] points = new Points[arrCoords.Length / 2];
                 int cointer = 0;
@@ -29,7 +29,6 @@ namespace Task.BLL
                     cointer++;
                 }
 
-
                 for (int i = 0; i < 2; i++)
                 {
                     if (!WorkWithCoords.IsLinePerpendicular(points[i], points[i + 1], points[i + 1], points[i + 2]))
@@ -39,30 +38,33 @@ namespace Task.BLL
                     }
                 }
 
-                if (IsMetCondition)
+                if (WorkWithCoords.ThisFigureNotHaveMathc(points))
                 {
-                    if (!WorkWithCoords.IsLinePerpendicular(points[2], points[3], points[3], points[0]))
-                        IsMetCondition = false;
-
-                    if (!WorkWithCoords.IsLinePerpendicular(points[3], points[0], points[0], points[1]))
-                        IsMetCondition = false;
-
-                    // square???
                     if (IsMetCondition)
-                        return "Rectangle";
+                    {
+                        if (!WorkWithCoords.IsLinePerpendicular(points[2], points[3], points[3], points[0]))
+                            IsMetCondition = false;
+
+                        if (!WorkWithCoords.IsLinePerpendicular(points[3], points[0], points[0], points[1]))
+                            IsMetCondition = false;
+
+                        // square???
+                        if (IsMetCondition)
+                            return "Rectangle";
+                    }
+
+                    else
+                        IsMetCondition = true;
+
+                    if ((WorkWithCoords.IsLineParallel(points[0], points[1], points[2], points[3]) && !WorkWithCoords.IsLineParallel(points[1], points[2], points[3], points[0])) || (!WorkWithCoords.IsLineParallel(points[0], points[1], points[2], points[3]) && WorkWithCoords.IsLineParallel(points[1], points[2], points[3], points[0])))
+                        return "Trapeze";
+
+                    if (WorkWithCoords.IsLineParallel(points[0], points[1], points[2], points[3]) && WorkWithCoords.IsLineParallel(points[1], points[2], points[3], points[0]))
+                        return "Parallelogram";
+
+                    // нужна проверка на пересечение сторон 
+                    return "Quadrangle";
                 }
-                
-                else
-                    IsMetCondition = true;
-
-                if( (WorkWithCoords.IsLineParallel(points[0], points[1], points[2], points[3]) && !WorkWithCoords.IsLineParallel(points[1], points[2], points[3], points[0]) ) || (!WorkWithCoords.IsLineParallel(points[0], points[1], points[2], points[3]) && WorkWithCoords.IsLineParallel(points[1], points[2], points[3], points[0])) )
-                    return "Trapeze";
-
-                if (WorkWithCoords.IsLineParallel(points[0], points[1], points[2], points[3]) && WorkWithCoords.IsLineParallel(points[1], points[2], points[3], points[0]))
-                      return "Parallelogram";
-
-                // нужна проверка на пересечение сторон 
-                return "Quadrangle";
             }
 
             // нужна проверка на пересечение сторон
