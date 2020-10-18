@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task", "src\Task\Task.cspro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InteractionWithGeometricFugire", "src\Task\InteractionWithGeometricFugire\InteractionWithGeometricFugire.csproj", "{E971063C-2D50-4828-A9EA-2042A6C539A5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InteractionWithGeometricFugireTests", "src\Task\InteractionWithGeometricFugireTests\InteractionWithGeometricFugireTests.csproj", "{371FB86C-F1CE-4267-BC72-D5FFB3723764}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{E971063C-2D50-4828-A9EA-2042A6C539A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E971063C-2D50-4828-A9EA-2042A6C539A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E971063C-2D50-4828-A9EA-2042A6C539A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{371FB86C-F1CE-4267-BC72-D5FFB3723764}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{371FB86C-F1CE-4267-BC72-D5FFB3723764}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{371FB86C-F1CE-4267-BC72-D5FFB3723764}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{371FB86C-F1CE-4267-BC72-D5FFB3723764}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
