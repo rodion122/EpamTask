@@ -43,22 +43,19 @@ namespace Task.BLL.GeometryFigure
                     if (cointer > 1)
                         return false;
                 }
+                double[] checkCoords  = arrData.Trim().Split(' ').Select(double.Parse).ToArray();
 
-                double[] checkCoords;
-                if (TryParseData(arrData, out checkCoords))
+                Points[] points = new Points[checkCoords.Length / 2];
+                cointer = 0;
+                for (int i = 0; i < checkCoords.Length; i += 2)
                 {
-                    Points[] points = new Points[checkCoords.Length / 2];
-
-                    for (int i = 0; i < checkCoords.Length; i += 2)
-                    {
-                        points[cointer] = new Points();
-                        points[cointer].X = checkCoords[i];
-                        points[cointer].Y = checkCoords[i + 1];
-                        cointer++;
-                    }
-                    if (WorkWithCoords.IsFigureOneLine(points))
-                        return false;
+                    points[cointer] = new Points();
+                    points[cointer].X = checkCoords[i];
+                    points[cointer].Y = checkCoords[i + 1];
+                    cointer++;
                 }
+                if (WorkWithCoords.IsFigureOneLine(points))
+                    return false;
             }
             return true;
         }

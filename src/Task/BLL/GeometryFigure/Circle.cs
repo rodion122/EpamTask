@@ -30,7 +30,7 @@ namespace Task.BLL.GeometryFigure
             this.arrPoints[0] = new Points();
             this.arrPoints[0].X = arrPoints[0];
             this.arrPoints[0].Y = arrPoints[1];
-            this.radius = arrPoints[2];
+            radius = arrPoints[2];
         }
     }
 }
