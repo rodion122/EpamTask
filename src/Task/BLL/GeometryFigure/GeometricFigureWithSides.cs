@@ -6,12 +6,13 @@ namespace Task.BLL.GeometryFigure
     {
         protected double[] figureSides;
 
+        protected void setArrFigureSides()
+        {
+            figureSides = new double[arrPoints.Length];
+        }
+
         protected void setFigureSides()
         {
-            if (arrPoints == null)
-                throw new ArgumentNullException();
-
-            setArrFigureSides();
             int j = 0;
             for (int i = 0; i < arrPoints.Length; i++)
             {
@@ -25,9 +26,6 @@ namespace Task.BLL.GeometryFigure
 
         public override double GetPerimeter()
         {
-            if (figureSides == null)
-                setFigureSides();
-
             double result = 0.0;
             for (int i = 0; i < figureSides.Length; i++)
                 result += figureSides[i];
@@ -38,6 +36,7 @@ namespace Task.BLL.GeometryFigure
         {
             if (arrPoints == null)
                 throw new ArgumentNullException();
+
             this.arrPoints = new Points[arrPoints.Length / 2];
             int cointer = 0;
             for (int i = 0; i < arrPoints.Length; i += 2)
@@ -47,10 +46,10 @@ namespace Task.BLL.GeometryFigure
                 this.arrPoints[cointer].Y = arrPoints[i + 1];
                 cointer++;
             }
-
+            setArrFigureSides();
+            setFigureSides();
         }
-        abstract protected void setArrFigureSides();
-
+        
         public double[] GetFigureSides() => figureSides;
     }
 }

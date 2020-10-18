@@ -31,63 +31,59 @@ namespace Task.BLL.GeometryFigure
                 throw new ArgumentNullException();
 
             double[] informationAfterConvert;
+            bool successfulCreateFigure = false;
             for (int i = 0; i < uploadedInformation.Length; i++)
             {
-                if(Validation.TryParseData(uploadedInformation[i], out informationAfterConvert))
+                successfulCreateFigure = false;
+                if (Validation.TryParseData(uploadedInformation[i], out informationAfterConvert))
                 {
                     switch (helper.DefineFigure(informationAfterConvert))
                     {
                         case "Circle":
-                            // валидация фигуры по точкам
-                            // ...
-                            
+                            if (!Validation.IsValidCircle(informationAfterConvert))
+                                break;
                             builderFigure = new CreateCircle();
-                            forSetCoords = builderFigure.FactoryMethod();
-                            forSetCoords.SerArrPoints(informationAfterConvert);
-                            figures.Add(forSetCoords);
+                            successfulCreateFigure = true;
                             break;
 
                         case "Triangle":
-                            // ..
-
+                            if (!Validation.IsValidTriangle(informationAfterConvert))
+                                break;
                             builderFigure = new CreateTriangle();
-                            forSetCoords = builderFigure.FactoryMethod();
-                            forSetCoords.SerArrPoints(informationAfterConvert);
-                            figures.Add(forSetCoords);
+                            successfulCreateFigure = true;
                             break;
 
                         case "Trapeze":
                             // ...
 
                             builderFigure = new CreateTrapeze();
-                            forSetCoords = builderFigure.FactoryMethod();
-                            forSetCoords.SerArrPoints(informationAfterConvert);
-                            figures.Add(forSetCoords);
+                            successfulCreateFigure = true;
                             break;
 
                         case "Rectangle":
-                            // ...
-
                             builderFigure = new CreateRectangle();
-                            forSetCoords = builderFigure.FactoryMethod();
-                            forSetCoords.SerArrPoints(informationAfterConvert);
-                            figures.Add(forSetCoords);
+                            successfulCreateFigure = true;
                             break;
 
                         case "Quadrangle":
+                            builderFigure = new CreateQuadrangle();
+                            successfulCreateFigure = true;
                             break;
 
                         case "Polygonal":
-                            // ..
-
                             builderFigure = new CreatePolygonal();
-                            forSetCoords = builderFigure.FactoryMethod();
-                            forSetCoords.SerArrPoints(informationAfterConvert);
-                            figures.Add(forSetCoords);
+                            successfulCreateFigure = true;
                             break;
 
                         case "None":
                             break;
+                    }
+
+                    if(successfulCreateFigure)
+                    {
+                        forSetCoords = builderFigure.FactoryMethod();
+                        forSetCoords.SerArrPoints(informationAfterConvert);
+                        figures.Add(forSetCoords);
                     }
                 }
             }

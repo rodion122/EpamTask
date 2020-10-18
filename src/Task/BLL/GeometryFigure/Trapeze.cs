@@ -5,6 +5,7 @@ namespace Task.BLL.GeometryFigure
 {
     class Trapeze : GeometricFigureWithSides
     {
+        // не правильно, не надо привязываться к оси ординат!
         private void setOrderSides()
         {
             double[] result = new double[4];
@@ -44,11 +45,6 @@ namespace Task.BLL.GeometryFigure
             // d - право == 3
             setOrderSides();
             return ((figureSides[0] + figureSides[1]) / 2 ) * Math.Sqrt(figureSides[2] * figureSides[2] - Math.Pow(((figureSides[1] - figureSides[0]) * (figureSides[1] - figureSides[0]) + figureSides[2] * figureSides[2] - figureSides[3] * figureSides[3]) / (2 * (figureSides[1] - figureSides[0])), 2));
-        }
-
-        protected override void setArrFigureSides()
-        {
-            figureSides = new double[4];
         }
     }
 }

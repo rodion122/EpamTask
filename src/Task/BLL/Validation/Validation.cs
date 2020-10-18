@@ -60,7 +60,7 @@ namespace Task.BLL.GeometryFigure
             }
         }
 
-        public bool IsValidCircle(double[] coords)
+        public static bool IsValidCircle(double[] coords)
         {
             if (coords.Length != 3)
                 return false;
@@ -71,7 +71,7 @@ namespace Task.BLL.GeometryFigure
             return true;
         }
 
-        public bool IsValidTriangle(double[] coords)
+        public static bool IsValidTriangle(double[] coords)
         { 
             if (coords.Length != 6)
                 return false;

@@ -19,10 +19,5 @@
             result -= arrPoints[0].X * arrPoints[arrPoints.Length - 1].Y;
             return result * 0.5;
         }
-
-        protected override void setArrFigureSides()
-        {
-            figureSides = new double[arrPoints.Length];
-        }
     }
 }

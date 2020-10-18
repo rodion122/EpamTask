@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="BLL\FactoryMethod\CreateCircle.cs" />
     <Compile Include="BLL\FactoryMethod\CreatePolygonal.cs" />
+    <Compile Include="BLL\FactoryMethod\CreateQuadrangle.cs" />
     <Compile Include="BLL\FactoryMethod\CreateRectangle.cs" />
     <Compile Include="BLL\FactoryMethod\CreateTrapeze.cs" />
     <Compile Include="BLL\FactoryMethod\CreateTriangle.cs" />
@@ -54,12 +55,14 @@
     <Compile Include="BLL\GeometryFigure\GeometricFigureWithSides.cs" />
     <Compile Include="BLL\GeometryFigure\GeometryFigure.cs" />
     <Compile Include="BLL\GeometryFigure\Polygonal.cs" />
+    <Compile Include="BLL\GeometryFigure\Quadrangle.cs" />
     <Compile Include="BLL\GeometryFigure\Rectangle.cs" />
     <Compile Include="BLL\GeometryFigure\Trapeze.cs" />
     <Compile Include="BLL\GeometryFigure\Triangle.cs" />
     <Compile Include="BLL\Points.cs" />
     <Compile Include="BLL\Validation\Intersections.cs" />
     <Compile Include="BLL\Validation\Validation.cs" />
+    <Compile Include="BLL\Validation\WorkWithCoords.cs" />
     <Compile Include="BLL\WorkWithCollectionGeometryFigure.cs" />
     <Compile Include="DAL\FileManager.cs" />
     <Compile Include="Program.cs" />

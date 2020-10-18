@@ -12,6 +12,7 @@ namespace Task
             test.AverageAreaOfAllShapes();
             test.AveragePerimeterOfAllShapes();
             test.FindFigureWithLargestArea();
+            // надо исправить! 
             test.FindTypeFigureWithMaxAvaragePerimentr();
         }
     }
