@@ -72,36 +72,41 @@ namespace Task.BLL.Validation
                             {
                                 Points check = GetPointWhereWasMatch(arrPoints[i], arrPoints[0], arrPoints[j], arrPoints[0]);
                                 for (int k = 0; k < arrPoints.Length; k++)
-                                    if (arrPoints[k].X != check.X && arrPoints[k].Y != check.Y)
+                                    if (arrPoints[k].X != check.X && arrPoints[k].Y != check.Y && !double.IsNaN(check.X) && double.IsNaN(check.Y))
                                         return false;
                             }
                         if (IsLinesMatch(arrPoints[i], arrPoints[i + 1], arrPoints[j], arrPoints[j + 1]))
                         {
                             Points check = GetPointWhereWasMatch(arrPoints[i], arrPoints[i + 1], arrPoints[j], arrPoints[j + 1]);
                             for (int k = 0; k < arrPoints.Length; k++)
-                                if (arrPoints[k].X != check.X && arrPoints[k].Y != check.Y)
+                                if (arrPoints[k].X != check.X && arrPoints[k].Y != check.Y && !double.IsNaN(check.X) && double.IsNaN(check.Y))
                                     return false;
                         }
                     }
                 }
 
                 else
-                    for (int j = 0; j < arrPoints.Length - 1; j++)
+                    for (int j = 0; j < arrPoints.Length; j++)
                     {
-                        if(j + 1 == arrPoints.Length)
-                            if(IsLinesMatch(arrPoints[i], arrPoints[i + 1], arrPoints[j], arrPoints[0]))
+                        if (j + 1 == arrPoints.Length)
+                        {
+                            if (IsLinesMatch(arrPoints[i], arrPoints[i + 1], arrPoints[j], arrPoints[0]))
                             {
                                 Points check = GetPointWhereWasMatch(arrPoints[i], arrPoints[i + 1], arrPoints[j], arrPoints[0]);
                                 for (int k = 0; k < arrPoints.Length; k++)
-                                    if (arrPoints[k].X != check.X && arrPoints[k].Y != check.Y)
+                                    if (arrPoints[k].X != check.X && arrPoints[k].Y != check.Y && !double.IsNaN(check.X) && double.IsNaN(check.Y))
                                         return false;
                             }
-                        if(IsLinesMatch(arrPoints[i], arrPoints[i + 1], arrPoints[j], arrPoints[j + 1]))
+                        }
+                        else
                         {
-                            Points check = GetPointWhereWasMatch(arrPoints[i], arrPoints[i + 1], arrPoints[j], arrPoints[j + 1]);
-                            for (int k = 0; k < arrPoints.Length; k++)
-                                if (arrPoints[k].X != check.X && arrPoints[k].Y != check.Y)
-                                    return false;
+                            if (IsLinesMatch(arrPoints[i], arrPoints[i + 1], arrPoints[j], arrPoints[j + 1]))
+                            {
+                                Points check = GetPointWhereWasMatch(arrPoints[i], arrPoints[i + 1], arrPoints[j], arrPoints[j + 1]);
+                                for (int k = 0; k < arrPoints.Length; k++)
+                                    if (arrPoints[k].X != check.X && arrPoints[k].Y != check.Y && !double.IsNaN(check.X) && double.IsNaN(check.Y))
+                                        return false;
+                            }
                         }
                     }
             }
@@ -112,6 +117,29 @@ namespace Task.BLL.Validation
         {
             setCoefficients(pointFirstStart, pointFirstEnd, pointSecondStart, pointSecondEnd);
             return (a1 * a2 + b1 * b2) / (Math.Sqrt(a1 * a1 + b1* b1) * Math.Sqrt(a2 * a2 + b2 * b2));
+        }
+
+        public static bool IsFigureOneLine(Points[] arrPoints)
+        {
+            int cointer = 0;
+            for (int j = 0; j < arrPoints.Length; j++)
+            {
+                if (j + 1 == arrPoints.Length)
+                {
+                    if (IsLineParallel(arrPoints[0], arrPoints[1], arrPoints[j], arrPoints[0]))
+                        cointer++;            
+                }
+                
+                else
+                {
+                    if (IsLineParallel(arrPoints[0], arrPoints[1], arrPoints[j], arrPoints[j + 1]))
+                        cointer++;
+                }
+            }
+            if (cointer == arrPoints.Length)
+                return true;
+
+            return false;
         }
     }
 }

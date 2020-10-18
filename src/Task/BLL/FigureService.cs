@@ -38,33 +38,30 @@ namespace Task.BLL
                     }
                 }
 
-                if (WorkWithCoords.ThisFigureNotHaveMathc(points))
+                if (IsMetCondition)
                 {
+                    if (!WorkWithCoords.IsLinePerpendicular(points[2], points[3], points[3], points[0]))
+                        IsMetCondition = false;
+
+                    if (!WorkWithCoords.IsLinePerpendicular(points[3], points[0], points[0], points[1]))
+                        IsMetCondition = false;
+
+                    // square???
                     if (IsMetCondition)
-                    {
-                        if (!WorkWithCoords.IsLinePerpendicular(points[2], points[3], points[3], points[0]))
-                            IsMetCondition = false;
-
-                        if (!WorkWithCoords.IsLinePerpendicular(points[3], points[0], points[0], points[1]))
-                            IsMetCondition = false;
-
-                        // square???
-                        if (IsMetCondition)
-                            return "Rectangle";
-                    }
-
-                    else
-                        IsMetCondition = true;
-
-                    if ((WorkWithCoords.IsLineParallel(points[0], points[1], points[2], points[3]) && !WorkWithCoords.IsLineParallel(points[1], points[2], points[3], points[0])) || (!WorkWithCoords.IsLineParallel(points[0], points[1], points[2], points[3]) && WorkWithCoords.IsLineParallel(points[1], points[2], points[3], points[0])))
-                        return "Trapeze";
-
-                    if (WorkWithCoords.IsLineParallel(points[0], points[1], points[2], points[3]) && WorkWithCoords.IsLineParallel(points[1], points[2], points[3], points[0]))
-                        return "Parallelogram";
-
-                    // нужна проверка на пересечение сторон 
-                    return "Quadrangle";
+                        return "Rectangle";
                 }
+                else
+                    IsMetCondition = true;
+
+                if ((WorkWithCoords.IsLineParallel(points[0], points[1], points[2], points[3]) && !WorkWithCoords.IsLineParallel(points[1], points[2], points[3], points[0])) || (!WorkWithCoords.IsLineParallel(points[0], points[1], points[2], points[3]) && WorkWithCoords.IsLineParallel(points[1], points[2], points[3], points[0])))
+                    return "Trapeze";
+
+                if (WorkWithCoords.IsLineParallel(points[0], points[1], points[2], points[3]) && WorkWithCoords.IsLineParallel(points[1], points[2], points[3], points[0]))
+                    return "Parallelogram";
+
+                // нужна проверка на пересечение сторон 
+                return "Quadrangle";
+                
             }
 
             // нужна проверка на пересечение сторон

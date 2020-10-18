@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Task.BLL.Validation;
 
 namespace Task.BLL.GeometryFigure
 {
@@ -42,6 +43,22 @@ namespace Task.BLL.GeometryFigure
                     if (cointer > 1)
                         return false;
                 }
+
+                double[] checkCoords;
+                if (TryParseData(arrData, out checkCoords))
+                {
+                    Points[] points = new Points[checkCoords.Length / 2];
+
+                    for (int i = 0; i < checkCoords.Length; i += 2)
+                    {
+                        points[cointer] = new Points();
+                        points[cointer].X = checkCoords[i];
+                        points[cointer].Y = checkCoords[i + 1];
+                        cointer++;
+                    }
+                    if (WorkWithCoords.IsFigureOneLine(points))
+                        return false;
+                }
             }
             return true;
         }
@@ -67,7 +84,7 @@ namespace Task.BLL.GeometryFigure
 
             if (coords[2] <= 0)
                 return false;
-           
+
             return true;
         }
 
@@ -80,16 +97,16 @@ namespace Task.BLL.GeometryFigure
             triangle.SerArrPoints(coords);
             double[] siedesTriangle = triangle.GetFigureSides();
             double result = 0;
+
             for (int i = 0; i < siedesTriangle.Length; i++)
             {
                 result = 0;
                 for (int j = 0; j < siedesTriangle.Length; j++)
                     if (j != i)
                         result += siedesTriangle[j];
-                if (siedesTriangle[i] < result)
+                if ((siedesTriangle[i] < result))
                     return true;
             }
-
             return false;
         }
     }
