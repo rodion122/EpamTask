@@ -1,4 +1,4 @@
-﻿namespace Task.BLL.GeometryFigure
+﻿namespace InteractionWithGeometricFugire.BLL.GeometryFigure
 {
     class CreateTrapeze : ICreateGeometryFigure
     {

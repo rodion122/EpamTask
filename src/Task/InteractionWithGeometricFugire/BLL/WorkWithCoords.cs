@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
 
-namespace Task.BLL
+namespace InteractionWithGeometricFugire.BLL
 {
-    static class WorkWithCoords
-    {
+     public static class WorkWithCoords
+     {
         private static double a1;
         private static double a2;
         private static double b1;

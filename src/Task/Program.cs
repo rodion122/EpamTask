@@ -1,6 +1,5 @@
 ﻿using System;
-using Task.BLL;
-using Task.BLL.GeometryFigure;
+using InteractionWithGeometricFugire.BLL;
 
 namespace Task
 {

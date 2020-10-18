@@ -2,7 +2,7 @@
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Task.DAL
+namespace InteractionWithGeometricFugire.DAL
 {
 	public static class FileManager
 	{

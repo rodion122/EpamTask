@@ -1,13 +1,12 @@
-﻿using System;
-
-namespace Task.BLL.GeometryFigure
+﻿
+namespace InteractionWithGeometricFugire.BLL.GeometryFigure
 {
-    class Quadrangle : GeometricFigureWithSides
+    class Polygonal : GeometricFigureWithSides
     {
-        public Quadrangle()
+        public Polygonal()
         {
-            TypeFigure = "Quadrangle";
             figureSides = null;
+            TypeFigure = "Polygonal";
         }
 
         public override double GetArea()

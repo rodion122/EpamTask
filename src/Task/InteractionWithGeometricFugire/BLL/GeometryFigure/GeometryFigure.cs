@@ -1,6 +1,6 @@
-﻿namespace Task.BLL.GeometryFigure
+﻿namespace InteractionWithGeometricFugire.BLL.GeometryFigure
 {
-    abstract class GeometryFigure
+    public abstract class GeometryFigure
     {
         protected Points[] arrPoints;
 

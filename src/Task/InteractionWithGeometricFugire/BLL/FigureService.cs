@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Task.BLL
+namespace InteractionWithGeometricFugire.BLL
 {
-    static class FigureService
+    public static class FigureService
     {
         public static string DefineFigure(double[] arrCoords)
         {

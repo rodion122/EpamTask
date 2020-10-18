@@ -1,6 +1,6 @@
-﻿namespace Task.BLL
+﻿namespace InteractionWithGeometricFugire.BLL
 {
-    class Points
+    public class Points
     {
         double x;
         double y;

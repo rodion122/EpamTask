@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{79CE1383-420E-459B-8F48-966BA66EEB89}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Task</RootNamespace>
-    <AssemblyName>Task</AssemblyName>
+    <ProjectGuid>{E971063C-2D50-4828-A9EA-2042A6C539A5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>InteractionWithGeometricFugire</RootNamespace>
+    <AssemblyName>InteractionWithGeometricFugire</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,17 +41,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="BLL\FacrotyMethod\CreateCircle.cs" />
+    <Compile Include="BLL\FacrotyMethod\CreateParallelogram.cs" />
+    <Compile Include="BLL\FacrotyMethod\CreatePolygonal.cs" />
+    <Compile Include="BLL\FacrotyMethod\CreateQuadrangle.cs" />
+    <Compile Include="BLL\FacrotyMethod\CreateRectangle.cs" />
+    <Compile Include="BLL\FacrotyMethod\CreateTrapeze.cs" />
+    <Compile Include="BLL\FacrotyMethod\CreateTriangle.cs" />
+    <Compile Include="BLL\FacrotyMethod\ICreateGeometryFigure.cs" />
+    <Compile Include="BLL\FigureService.cs" />
+    <Compile Include="BLL\GeometryFigure\Circle.cs" />
+    <Compile Include="BLL\GeometryFigure\GeometricFigureWithSides.cs" />
+    <Compile Include="BLL\GeometryFigure\GeometryFigure.cs" />
+    <Compile Include="BLL\GeometryFigure\Parallelogram.cs" />
+    <Compile Include="BLL\GeometryFigure\Polygonal.cs" />
+    <Compile Include="BLL\GeometryFigure\Quadrangle.cs" />
+    <Compile Include="BLL\GeometryFigure\Rectangle.cs" />
+    <Compile Include="BLL\GeometryFigure\Trapeze.cs" />
+    <Compile Include="BLL\GeometryFigure\Triangle.cs" />
+    <Compile Include="BLL\Points.cs" />
+    <Compile Include="BLL\Validation\Validation.cs" />
+    <Compile Include="BLL\WorkWithCollectionGeometryFigure.cs" />
+    <Compile Include="BLL\WorkWithCoords.cs" />
+    <Compile Include="DAL\FileManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="InteractionWithGeometricFugire\InteractionWithGeometricFugire.csproj">
-      <Project>{e971063c-2d50-4828-a9ea-2042a6c539a5}</Project>
-      <Name>InteractionWithGeometricFugire</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

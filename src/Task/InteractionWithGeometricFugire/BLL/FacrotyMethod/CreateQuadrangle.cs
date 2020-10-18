@@ -1,6 +1,6 @@
-﻿using Task.BLL.GeometryFigure;
+﻿using InteractionWithGeometricFugire.BLL.GeometryFigure;
 
-namespace Task.BLL
+namespace InteractionWithGeometricFugire.BLL
 {
     class CreateQuadrangle : ICreateGeometryFigure
     {
