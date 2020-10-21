@@ -16,8 +16,8 @@ namespace Task
             {
                 Console.WriteLine(ex.Message);
             }
-            for (int i = 0; i < test.GetListFigures().Count; i++)
-                Console.WriteLine(test.GetListFigures()[i].TypeFigure + "  " + test.GetListFigures()[i].GetArea()  + "  " + test.GetListFigures()[i].GetPerimeter());
+            foreach (InteractionWithGeometricFugire.BLL.GeometryFigure.GeometryFigure item in test.GetListFigures())
+                Console.WriteLine(item.TypeFigure + "  " + item.GetArea()  + "  " + item.GetPerimeter());
 
             try
             {

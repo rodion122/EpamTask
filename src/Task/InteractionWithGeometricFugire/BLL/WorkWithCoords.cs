@@ -12,6 +12,23 @@ namespace InteractionWithGeometricFugire.BLL
         private static double c1;
         private static double c2;
 
+        private static bool isPointBelongsTwoLines(Points pointFirstStart, Points pointFirstEnd, Points pointSecondStart, Points pointSecondEnd, Points chekedPoint)
+        {
+            double x1 = (pointSecondEnd.X - pointSecondStart.X) * (pointFirstStart.Y - pointSecondStart.Y) - (pointSecondEnd.Y - pointSecondStart.Y) * (pointFirstStart.X - pointSecondStart.X);
+            double x2 = (pointSecondEnd.X - pointSecondStart.X) * (pointFirstEnd.Y - pointSecondStart.Y) - (pointSecondEnd.Y - pointSecondStart.Y) * (pointFirstEnd.X - pointSecondStart.X);
+            double x3 = (pointFirstEnd.X - pointFirstStart.X) * (pointSecondStart.Y - pointFirstStart.Y) - (pointFirstEnd.Y - pointFirstStart.Y) * (pointSecondStart.X - pointFirstStart.X);
+            double x4 = (pointFirstEnd.X - pointFirstStart.X) * (pointSecondEnd.Y - pointFirstStart.Y) - (pointFirstEnd.Y - pointFirstStart.Y) * (pointSecondEnd.X - pointFirstStart.X);
+            return x1 * x2 < 0 && x3 * x4 < 0;
+        }
+
+        private static bool thisPointBelongFigurePoints(Points[] arrPoints, Points chekedPoint)
+        {
+            for (int i = 0; i < arrPoints.Length; i++)
+                if (arrPoints[i].X == chekedPoint.X && arrPoints[i].Y == chekedPoint.Y)
+                    return true;
+            return false;
+        }
+
         private static void setCoefficients(Points pointFirstStart, Points pointFirstEnd, Points pointSecondStart, Points pointSecondEnd)
         {
             a1 = pointFirstEnd.Y - pointFirstStart.Y;
@@ -23,20 +40,22 @@ namespace InteractionWithGeometricFugire.BLL
             c2 = pointSecondStart.Y * pointSecondEnd.X - pointSecondStart.X * pointSecondEnd.Y;
         }
 
-        public static bool IsLineParallel(Points pointFirstStart, Points pointFirstEnd, Points pointSecondStart, Points pointSecondEnd)
+        public static bool IsLinesParallel(Points pointFirstStart, Points pointFirstEnd, Points pointSecondStart, Points pointSecondEnd)
         {
             setCoefficients(pointFirstStart, pointFirstEnd, pointSecondStart, pointSecondEnd);
-            if (a1 * b2 == a2 * b1)
-                return true;
-            return false;
+            return (a1 * b2 == a2 * b1);
         }
 
-        public static bool IsLinePerpendicular(Points pointFirstStart, Points pointFirstEnd, Points pointSecondStart, Points pointSecondEnd)
+        public static bool IsLineСoincide(Points pointFirstStart, Points pointFirstEnd, Points pointSecondStart, Points pointSecondEnd)
         {
             setCoefficients(pointFirstStart, pointFirstEnd, pointSecondStart, pointSecondEnd);
-            if (a1 * a2 + b1 * b2 == 0)
-                return true;
-            return false;
+            return (a1 * c2 == a2 * c1 && b1 * c2 == b2 * c1);
+        }
+
+            public static bool IsLinePerpendicular(Points pointFirstStart, Points pointFirstEnd, Points pointSecondStart, Points pointSecondEnd)
+        {
+            setCoefficients(pointFirstStart, pointFirstEnd, pointSecondStart, pointSecondEnd);
+            return (a1 * a2 + b1 * b2 == 0);
         }
 
         public static Points GetPointWhereWasMatch(Points pointFirstStart, Points pointFirstEnd, Points pointSecondStart, Points pointSecondEnd)
@@ -48,99 +67,31 @@ namespace InteractionWithGeometricFugire.BLL
             return result;
         }
 
-        // it works incorrectly when there is an intersection point, but the segments do not intersect, so I did not use this check where it is necessary
-        // therefore, quadrilaterals and polygons may be incorrect
         public static bool ThisFigureNotHaveMathc(Points[] arrPoints)
         {
-            bool isNewPoint = true;
-            for (int i = 0; i < arrPoints.Length - 1; i++)
+            int indexFitst, indexSecond, indexThird, indexFourth;
+            for (int i = 0; i < arrPoints.Length; i++)
             {
+                indexFitst = i;
                 if (i + 1 == arrPoints.Length)
-                { 
-                    for (int j = 0; j < arrPoints.Length - 1; j++)
+                    indexSecond = 0;
+                else 
+                    indexSecond = indexFitst + 1;
+                   
+                for (int j = 0; j < arrPoints.Length; j++)
+                {
+                    indexThird = j;
+                    indexFourth = j + 1;
+                    if (j + 1 == arrPoints.Length)
+                        indexFourth = 0;
+                    
+                    if (IsLinesIntersect(arrPoints[indexFitst], arrPoints[indexSecond], arrPoints[indexThird], arrPoints[indexFourth]))
                     {
-                        if (j + 1 == arrPoints.Length)
-                            if (IsLinesIntersect(arrPoints[i], arrPoints[0], arrPoints[j], arrPoints[0]))
-                            {
-                                Points check = GetPointWhereWasMatch(arrPoints[i], arrPoints[0], arrPoints[j], arrPoints[0]);
-                                if (check.X >= arrPoints.Min(l => l.X) && check.Y >= arrPoints.Min(l => l.Y) && check.X <= arrPoints.Max(l => l.X) && check.Y <= arrPoints.Max(l => l.Y))
-                                {
-                                    for (int k = 0; k < arrPoints.Length; k++)
-                                        if (arrPoints[k].X == check.X && arrPoints[k].Y == check.Y && !double.IsNaN(check.X) && !double.IsNaN(check.Y) )
-                                        {
-                                            isNewPoint = false;
-                                            break;
-                                        }
-                                    if (isNewPoint)
-                                        return false;
-                                    else
-                                        isNewPoint = true;
-                                }
-                            }
-                        if (IsLinesIntersect(arrPoints[i], arrPoints[i + 1], arrPoints[j], arrPoints[j + 1]))
-                        {
-                            Points check = GetPointWhereWasMatch(arrPoints[i], arrPoints[i + 1], arrPoints[j], arrPoints[j + 1]);
-                            if (check.X >= arrPoints.Min(l => l.X) && check.Y >= arrPoints.Min(l => l.Y) && check.X <= arrPoints.Max(l => l.X) && check.Y <= arrPoints.Max(l => l.Y))
-                            {
-                                for (int k = 0; k < arrPoints.Length; k++)
-                                    if (arrPoints[k].X == check.X && arrPoints[k].Y == check.Y && !double.IsNaN(check.X) && !double.IsNaN(check.Y))
-                                    {
-                                        isNewPoint = false;
-                                        break;
-                                    }
-                                if (isNewPoint)
-                                    return false;
-                                else
-                                    isNewPoint = true;
-                            }
-                        }
+                        Points check = GetPointWhereWasMatch(arrPoints[indexFitst], arrPoints[indexSecond], arrPoints[indexThird], arrPoints[indexFourth]);
+                        if (isPointBelongsTwoLines(arrPoints[indexFitst], arrPoints[indexSecond], arrPoints[j], arrPoints[indexFourth], check) && !thisPointBelongFigurePoints(arrPoints, check))
+                            return false;
                     }
                 }
-
-                else
-                    for (int j = 0; j < arrPoints.Length; j++)
-                    {
-                        if (j + 1 == arrPoints.Length)
-                        {
-                            if (IsLinesIntersect(arrPoints[i], arrPoints[i + 1], arrPoints[j], arrPoints[0]))
-                            {
-                                Points check = GetPointWhereWasMatch(arrPoints[i], arrPoints[i + 1], arrPoints[j], arrPoints[0]);
-                                if (check.X >= arrPoints.Min(l => l.X) && check.Y >= arrPoints.Min(l => l.Y) && check.X <= arrPoints.Max(l => l.X) && check.Y <= arrPoints.Max(l => l.Y))
-                                {
-                                    for (int k = 0; k < arrPoints.Length; k++)
-                                        if (arrPoints[k].X == check.X && arrPoints[k].Y == check.Y && !double.IsNaN(check.X) && !double.IsNaN(check.Y))
-                                        {
-                                            isNewPoint = false;
-                                            break;
-                                        }
-                                    if (isNewPoint)
-                                        return false;
-                                    else
-                                        isNewPoint = true;
-                                }
-                            }
-                        }
-                        else
-                        {
-                            if (IsLinesIntersect(arrPoints[i], arrPoints[i + 1], arrPoints[j], arrPoints[j + 1]))
-                            {
-                                Points check = GetPointWhereWasMatch(arrPoints[i], arrPoints[i + 1], arrPoints[j], arrPoints[j + 1]);
-                                if (check.X >= arrPoints.Min(l => l.X) && check.Y >= arrPoints.Min(l => l.Y) && check.X <= arrPoints.Max(l => l.X) && check.Y <= arrPoints.Max(l => l.Y))
-                                {
-                                    for (int k = 0; k < arrPoints.Length; k++)
-                                        if (arrPoints[k].X == check.X && arrPoints[k].Y == check.Y && !double.IsNaN(check.X) && !double.IsNaN(check.Y))
-                                        {
-                                            isNewPoint = false;
-                                            break;
-                                        }
-                                        if (isNewPoint)
-                                            return false;
-                                        else
-                                            isNewPoint = true;
-                                }
-                            }
-                        }
-                    }
             }
             return true;
         }
@@ -158,28 +109,24 @@ namespace InteractionWithGeometricFugire.BLL
             {
                 if (j + 1 == arrPoints.Length)
                 {
-                    if (IsLineParallel(arrPoints[0], arrPoints[1], arrPoints[j], arrPoints[0]))
-                        cointer++;            
+                    if (IsLinesParallel(arrPoints[0], arrPoints[1], arrPoints[j], arrPoints[0]))
+                        cointer++;
                 }
-                
                 else
                 {
-                    if (IsLineParallel(arrPoints[0], arrPoints[1], arrPoints[j], arrPoints[j + 1]))
+                    if (IsLinesParallel(arrPoints[0], arrPoints[1], arrPoints[j], arrPoints[j + 1]))
                         cointer++;
                 }
             }
-            if (cointer == arrPoints.Length)
-                return true;
-
-            return false;
+            return (cointer == arrPoints.Length);
         }
 
         public static bool IsLinesIntersect(Points pointFirstStart, Points pointFirstEnd, Points pointSecondStart, Points pointSecondEnd)
         {
             setCoefficients(pointFirstStart, pointFirstEnd, pointSecondStart, pointSecondEnd);
-            if ((a1 == 0 && b1 == 0 || a2 == 0 && b2 == 0) || (a1 * b2 - a2 * b1) == 0)
-                return false;
-            return true;
+            if(!IsLinesParallel(pointFirstStart, pointFirstEnd, pointSecondStart, pointSecondEnd) && !IsLineСoincide(pointFirstStart, pointFirstEnd, pointSecondStart, pointSecondEnd))
+                return true;
+            return false;
         }
     }
 }

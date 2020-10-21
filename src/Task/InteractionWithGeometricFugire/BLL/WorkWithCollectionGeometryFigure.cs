@@ -14,9 +14,6 @@ namespace InteractionWithGeometricFugire.BLL
 
         public WorkWithCollectionGeometryFigure()
         {
-            collectionItem = null;
-            uploadedInformation = null;
-            builderFigure = null;
         }
 
         public void ReadInformationFromFile(string route)

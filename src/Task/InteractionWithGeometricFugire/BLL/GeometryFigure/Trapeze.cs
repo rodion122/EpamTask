@@ -9,7 +9,7 @@ namespace InteractionWithGeometricFugire.BLL.GeometryFigure
         {
             double[] result = new double[4];
 
-            if(WorkWithCoords.IsLineParallel(arrPoints[0], arrPoints[1], arrPoints[2], arrPoints[3]))
+            if(WorkWithCoords.IsLinesParallel(arrPoints[0], arrPoints[1], arrPoints[2], arrPoints[3]))
             {
                 if(Math.Sqrt( Math.Pow(Math.Abs(arrPoints[0].X  - arrPoints[1].X), 2)  + Math.Pow(Math.Abs(arrPoints[0].Y - arrPoints[1].Y), 2)) < Math.Sqrt(Math.Pow(Math.Abs(arrPoints[2].X - arrPoints[3].X), 2) + Math.Pow(Math.Abs(arrPoints[2].Y - arrPoints[3].Y), 2)))
                 {

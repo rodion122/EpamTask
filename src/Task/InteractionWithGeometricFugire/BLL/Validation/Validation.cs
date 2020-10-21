@@ -69,10 +69,7 @@ namespace InteractionWithGeometricFugire.BLL
 
         public static bool IsValidCircle(double[] coords)
         {
-            if (coords.Length != 3)
-                return false;
-
-            if (coords[2] <= 0)
+            if (coords.Length != 3 || coords[2] <= 0)
                 return false;
 
             return true;

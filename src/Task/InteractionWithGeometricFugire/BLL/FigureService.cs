@@ -51,19 +51,19 @@ namespace InteractionWithGeometricFugire.BLL
                 else
                     IsMetCondition = true;
 
-    //            if (WorkWithCoords.ThisFigureNotHaveMathc(points))
-    //            {
-                    if ((WorkWithCoords.IsLineParallel(points[0], points[1], points[2], points[3]) && !WorkWithCoords.IsLineParallel(points[1], points[2], points[3], points[0])) || (!WorkWithCoords.IsLineParallel(points[0], points[1], points[2], points[3]) && WorkWithCoords.IsLineParallel(points[1], points[2], points[3], points[0])))
+                if (WorkWithCoords.ThisFigureNotHaveMathc(points))
+                {
+                    if ((WorkWithCoords.IsLinesParallel(points[0], points[1], points[2], points[3]) && !WorkWithCoords.IsLinesParallel(points[1], points[2], points[3], points[0])) || (!WorkWithCoords.IsLinesParallel(points[0], points[1], points[2], points[3]) && WorkWithCoords.IsLinesParallel(points[1], points[2], points[3], points[0])))
                         return "Trapeze";
 
-                    if (WorkWithCoords.IsLineParallel(points[0], points[1], points[2], points[3]) && WorkWithCoords.IsLineParallel(points[1], points[2], points[3], points[0]))
+                    if (WorkWithCoords.IsLinesParallel(points[0], points[1], points[2], points[3]) && WorkWithCoords.IsLinesParallel(points[1], points[2], points[3], points[0]))
                         return "Parallelogram";
 
                     return "Quadrangle";
-     //           }
+                }
             }
 
-            if (arrCoords.Length > 8) // && WorkWithCoords.ThisFigureNotHaveMathc(points)
+            if (arrCoords.Length > 8 && WorkWithCoords.ThisFigureNotHaveMathc(points) )
                 return "Polygonal";
 
             return "None";
