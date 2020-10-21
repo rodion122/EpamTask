@@ -50,7 +50,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="InteractionWithGeometricFugire\InteractionWithGeometricFugire.csproj">
+    <ProjectReference Include="..\InteractionWithGeometricFugire\InteractionWithGeometricFugire.csproj">
       <Project>{e971063c-2d50-4828-a9ea-2042a6c539a5}</Project>
       <Name>InteractionWithGeometricFugire</Name>
     </ProjectReference>

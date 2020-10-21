@@ -8,9 +8,9 @@ namespace Task
         static void Main()
         {
             WorkWithCollectionGeometryFigure test = new WorkWithCollectionGeometryFigure();
-            test.ReadInformationFromFile(@"D:\programms\Git\EpamTask\src\Task\FeguresCoords.txt");
             try
             {
+                test.ReadInformationFromFile(@"D:\programms\Git\EpamTask\src\InteractionWithGeometricFugire\DAL\FeguresCoords.txt");
                 test.CreateListFigures();
             }catch(ArgumentNullException ex)
             {

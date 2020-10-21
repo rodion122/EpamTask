@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 
 namespace InteractionWithGeometricFugire.BLL
 {
@@ -124,9 +123,7 @@ namespace InteractionWithGeometricFugire.BLL
         public static bool IsLinesIntersect(Points pointFirstStart, Points pointFirstEnd, Points pointSecondStart, Points pointSecondEnd)
         {
             setCoefficients(pointFirstStart, pointFirstEnd, pointSecondStart, pointSecondEnd);
-            if(!IsLinesParallel(pointFirstStart, pointFirstEnd, pointSecondStart, pointSecondEnd) && !IsLineСoincide(pointFirstStart, pointFirstEnd, pointSecondStart, pointSecondEnd))
-                return true;
-            return false;
+            return !IsLinesParallel(pointFirstStart, pointFirstEnd, pointSecondStart, pointSecondEnd) && !IsLineСoincide(pointFirstStart, pointFirstEnd, pointSecondStart, pointSecondEnd);
         }
     }
 }

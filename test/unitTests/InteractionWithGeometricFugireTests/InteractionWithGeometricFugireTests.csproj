@@ -56,8 +56,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\InteractionWithGeometricFugire\InteractionWithGeometricFugire.csproj">
-      <Project>{E971063C-2D50-4828-A9EA-2042A6C539A5}</Project>
+    <ProjectReference Include="..\..\..\src\InteractionWithGeometricFugire\InteractionWithGeometricFugire.csproj">
+      <Project>{e971063c-2d50-4828-a9ea-2042a6c539a5}</Project>
       <Name>InteractionWithGeometricFugire</Name>
     </ProjectReference>
   </ItemGroup>
