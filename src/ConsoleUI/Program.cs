@@ -25,8 +25,7 @@ namespace Task
                 Console.WriteLine(" Average perimeter of all shapes: " + FigureService.AveragePerimeterOfAllShapes(test.GetListFigures()));
                 Console.WriteLine(" Figure with largest area: " + FigureService.FindFigureWithLargestArea(test.GetListFigures()));
                 Console.WriteLine(" Type figure with max avarage perimentr: " + FigureService.FindTypeFigureWithMaxAvaragePerimentr(test.GetListFigures()));
-            }
-            catch (ArgumentNullException ex)
+            }catch(ArgumentNullException ex)
             {
                 Console.WriteLine(ex.Message);
             }

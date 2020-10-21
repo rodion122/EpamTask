@@ -7,7 +7,6 @@ namespace InteractionWithGeometricFugire.BLL.GeometryFigure
         public Parallelogram()
         {
             TypeFigure = "Parallelogram";
-            figureSides = null;
         }
 
         public override double GetArea()

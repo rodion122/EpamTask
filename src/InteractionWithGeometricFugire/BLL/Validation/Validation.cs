@@ -7,7 +7,7 @@ namespace InteractionWithGeometricFugire.BLL
     {
         public static bool IsValidInputData(string arrData)
         {
-            string[] testArr = arrData.Trim().Split(' ').ToArray();
+            string[] testArr = arrData.Trim().Replace('.',',').Split(' ').ToArray();
             for (int i = 0; i < testArr.Length; i++)
                 if (!double.TryParse(testArr[i], out double value))
                     return false;
@@ -36,7 +36,7 @@ namespace InteractionWithGeometricFugire.BLL
                     if (cointer > 1)
                         return false;
                 }
-                double[] checkCoords  = arrData.Trim().Split(' ').Select(double.Parse).ToArray();
+                double[] checkCoords  = arrData.Trim().Replace('.', ',').Split(' ').Select(double.Parse).ToArray();
 
                 Points[] points = new Points[checkCoords.Length / 2];
                 cointer = 0;
@@ -47,8 +47,7 @@ namespace InteractionWithGeometricFugire.BLL
                     points[cointer].Y = checkCoords[i + 1];
                     cointer++;
                 }
-                if (WorkWithCoords.IsFigureOneLine(points))
-                    return false;
+                    return !WorkWithCoords.IsFigureOneLine(points);
             }
             return true;
         }
@@ -57,7 +56,7 @@ namespace InteractionWithGeometricFugire.BLL
         {
             if (IsValidInputData(arrData))
             {
-                arrValidData = arrData.Trim().Split(' ').Select(double.Parse).ToArray();
+                arrValidData = arrData.Trim().Replace('.', ',').Split(' ').Select(double.Parse).ToArray();
                 return true;
             }
             else

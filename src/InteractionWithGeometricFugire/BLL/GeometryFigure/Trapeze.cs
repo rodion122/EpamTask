@@ -47,7 +47,6 @@ namespace InteractionWithGeometricFugire.BLL.GeometryFigure
 
         public Trapeze()
         {
-            figureSides = null;
             TypeFigure = "Trapeze";
         }
 

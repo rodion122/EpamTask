@@ -6,7 +6,6 @@ namespace InteractionWithGeometricFugire.BLL.GeometryFigure
     {
         public Triangle()
         {
-            figureSides = null;
             TypeFigure = "Triangle";
         }
 

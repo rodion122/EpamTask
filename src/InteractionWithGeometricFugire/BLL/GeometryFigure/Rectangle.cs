@@ -4,7 +4,6 @@
     {
         public Rectangle()
         {
-            figureSides = null;
             TypeFigure = "Rectangle";
         }
 

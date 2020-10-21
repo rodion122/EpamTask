@@ -7,7 +7,6 @@ namespace InteractionWithGeometricFugire.BLL.GeometryFigure
         public Quadrangle()
         {
             TypeFigure = "Quadrangle";
-            figureSides = null;
         }
 
         public override double GetArea()

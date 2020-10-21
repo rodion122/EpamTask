@@ -5,7 +5,6 @@ namespace InteractionWithGeometricFugire.BLL.GeometryFigure
     {
         public Polygonal()
         {
-            figureSides = null;
             TypeFigure = "Polygonal";
         }
 
