@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using InteractionWithGeometricFugire;
 using InteractionWithGeometricFugire.GeometryFigures;
 using InteractionWithGeometricFugire.Services;
@@ -13,7 +12,7 @@ namespace ConsoleUI
             WorkWithCollectionGeometryFigure test = new WorkWithCollectionGeometryFigure();
             try
             {
-                test.SetUploadedInformationFromFile(Path.GetFullPath(@"D:\programms\Git\EpamTask\src\InteractionWithGeometricFugire\FeguresCoords.txt"));
+                test.SetUploadedInformationFromFile(@"..\..\..\..\FeguresCoords.txt");
                 test.CreateListFigures();
             }catch(ArgumentNullException ex)
             {
