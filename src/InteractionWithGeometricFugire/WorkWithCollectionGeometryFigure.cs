@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using InteractionWithGeometricFugire.BLL;
-using InteractionWithGeometricFugire.BLL.FactoryMethod;
+using InteractionWithGeometricFugire.FactoryMethod;
+using InteractionWithGeometricFugire.Services;
+using InteractionWithGeometricFugire.GeometryFigures;
+using InteractionWithGeometricFugire.Validation;
 
-namespace InteractionWithGeometricFugire.DAL.GeometryFigures
+namespace InteractionWithGeometricFugire
 {
     public class WorkWithCollectionGeometryFigure
     {
@@ -16,7 +18,7 @@ namespace InteractionWithGeometricFugire.DAL.GeometryFigures
         {
         }
 
-        public void SetUploadedInformationFromFile(string route) => uploadedInformation = FileManager.ReadInformation(route);
+        public void SetUploadedInformationFromFile(string route) => uploadedInformation = FileService.ReadInformation(route);
 
         public void CreateListFigures()
         {
@@ -28,19 +30,19 @@ namespace InteractionWithGeometricFugire.DAL.GeometryFigures
             for (int i = 0; i < uploadedInformation.Length; i++)
             {
                 successfulCreateFigure = false;
-                if (Validation.TryParseData(uploadedInformation[i], out informationAfterConvert))
+                if (ValidationFigure.TryParseData(uploadedInformation[i], out informationAfterConvert))
                 {
                     switch (FigureService.DefineFigure(informationAfterConvert))
                     {
                         case "Circle":
-                            if (!Validation.IsValidCircle(informationAfterConvert))
+                            if (!ValidationFigure.IsValidCircle(informationAfterConvert))
                                 break;
                             builderFigure = new CreateCircle();
                             successfulCreateFigure = true;
                             break;
 
                         case "Triangle":
-                            if (!Validation.IsValidTriangle(informationAfterConvert))
+                            if (!ValidationFigure.IsValidTriangle(informationAfterConvert))
                                 break;
                             builderFigure = new CreateTriangle();
                             successfulCreateFigure = true;

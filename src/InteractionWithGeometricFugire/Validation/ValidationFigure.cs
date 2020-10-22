@@ -1,10 +1,10 @@
 ﻿using System.Linq;
-using InteractionWithGeometricFugire.DAL;
-using InteractionWithGeometricFugire.DAL.GeometryFigures;
+using InteractionWithGeometricFugire.Services;
+using InteractionWithGeometricFugire.GeometryFigures;
 
-namespace InteractionWithGeometricFugire.BLL
+namespace InteractionWithGeometricFugire.Validation
 {
-    static class Validation
+    static class ValidationFigure
     {
         public static bool IsValidInputData(string arrData)
         {
@@ -48,7 +48,7 @@ namespace InteractionWithGeometricFugire.BLL
                     points[cointer].Y = checkCoords[i + 1];
                     cointer++;
                 }
-                    return !WorkWithCoords.IsFigureOneLine(points);
+                    return !CoordsService.IsFigureOneLine(points);
             }
             return true;
         }

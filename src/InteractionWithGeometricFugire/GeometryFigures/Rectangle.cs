@@ -1,4 +1,4 @@
-﻿namespace InteractionWithGeometricFugire.DAL.GeometryFigures
+﻿namespace InteractionWithGeometricFugire.GeometryFigures
 {
     class Rectangle : GeometricFigureWithSides
     {

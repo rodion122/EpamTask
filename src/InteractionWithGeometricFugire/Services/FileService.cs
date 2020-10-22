@@ -2,9 +2,9 @@
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace InteractionWithGeometricFugire.DAL
+namespace InteractionWithGeometricFugire.Services
 {
-	public static class FileManager
+	public static class FileService
 	{
 		public static string[] ReadInformation(string filePath)
 		{

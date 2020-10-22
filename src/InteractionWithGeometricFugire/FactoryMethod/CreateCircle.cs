@@ -1,6 +1,6 @@
-﻿using InteractionWithGeometricFugire.DAL.GeometryFigures;
+﻿using InteractionWithGeometricFugire.GeometryFigures;
 
-namespace InteractionWithGeometricFugire.BLL.FactoryMethod
+namespace InteractionWithGeometricFugire.FactoryMethod
 {
     class CreateCircle : ICreateGeometryFigure
     {

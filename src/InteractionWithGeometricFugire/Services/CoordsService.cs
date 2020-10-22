@@ -1,9 +1,8 @@
 ﻿using System;
-using InteractionWithGeometricFugire.DAL;
 
-namespace InteractionWithGeometricFugire.BLL
+namespace InteractionWithGeometricFugire.Services
 {
-     public static class WorkWithCoords
+     public static class CoordsService
      {
         private static double a1;
         private static double a2;

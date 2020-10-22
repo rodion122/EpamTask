@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using InteractionWithGeometricFugire.DAL;
-using InteractionWithGeometricFugire.DAL.GeometryFigures;
+using InteractionWithGeometricFugire.GeometryFigures;
 
-namespace InteractionWithGeometricFugire.BLL
+namespace InteractionWithGeometricFugire.Services
 {
     public static class FigureService
     {
@@ -32,7 +31,7 @@ namespace InteractionWithGeometricFugire.BLL
             {
                 for (int i = 0; i < 2; i++)
                 {
-                    if (!WorkWithCoords.IsLinePerpendicular(points[i], points[i + 1], points[i + 1], points[i + 2]))
+                    if (!CoordsService.IsLinePerpendicular(points[i], points[i + 1], points[i + 1], points[i + 2]))
                     {
                         IsMetCondition = false;
                         break;
@@ -41,10 +40,10 @@ namespace InteractionWithGeometricFugire.BLL
 
                 if (IsMetCondition)
                 {
-                    if (!WorkWithCoords.IsLinePerpendicular(points[2], points[3], points[3], points[0]))
+                    if (!CoordsService.IsLinePerpendicular(points[2], points[3], points[3], points[0]))
                         IsMetCondition = false;
 
-                    if (!WorkWithCoords.IsLinePerpendicular(points[3], points[0], points[0], points[1]))
+                    if (!CoordsService.IsLinePerpendicular(points[3], points[0], points[0], points[1]))
                         IsMetCondition = false;
 
                     if (IsMetCondition)
@@ -53,19 +52,19 @@ namespace InteractionWithGeometricFugire.BLL
                 else
                     IsMetCondition = true;
 
-                if (WorkWithCoords.ThisFigureNotHaveMathc(points))
+                if (CoordsService.ThisFigureNotHaveMathc(points))
                 {
-                    if ((WorkWithCoords.IsLinesParallel(points[0], points[1], points[2], points[3]) && !WorkWithCoords.IsLinesParallel(points[1], points[2], points[3], points[0])) || (!WorkWithCoords.IsLinesParallel(points[0], points[1], points[2], points[3]) && WorkWithCoords.IsLinesParallel(points[1], points[2], points[3], points[0])))
+                    if ((CoordsService.IsLinesParallel(points[0], points[1], points[2], points[3]) && !CoordsService.IsLinesParallel(points[1], points[2], points[3], points[0])) || (!CoordsService.IsLinesParallel(points[0], points[1], points[2], points[3]) && CoordsService.IsLinesParallel(points[1], points[2], points[3], points[0])))
                         return "Trapeze";
 
-                    if (WorkWithCoords.IsLinesParallel(points[0], points[1], points[2], points[3]) && WorkWithCoords.IsLinesParallel(points[1], points[2], points[3], points[0]))
+                    if (CoordsService.IsLinesParallel(points[0], points[1], points[2], points[3]) && CoordsService.IsLinesParallel(points[1], points[2], points[3], points[0]))
                         return "Parallelogram";
 
                     return "Quadrangle";
                 }
             }
 
-            if (arrCoords.Length > 8 && WorkWithCoords.ThisFigureNotHaveMathc(points) )
+            if (arrCoords.Length > 8 && CoordsService.ThisFigureNotHaveMathc(points) )
                 return "Polygonal";
 
             return "None";

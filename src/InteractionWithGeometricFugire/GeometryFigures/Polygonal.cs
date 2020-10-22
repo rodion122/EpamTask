@@ -1,10 +1,10 @@
-﻿namespace InteractionWithGeometricFugire.DAL.GeometryFigures
+﻿namespace InteractionWithGeometricFugire.GeometryFigures
 {
-    class Quadrangle : GeometricFigureWithSides
+    class Polygonal : GeometricFigureWithSides
     {
-        public Quadrangle()
+        public Polygonal()
         {
-            TypeFigure = "Quadrangle";
+            TypeFigure = "Polygonal";
         }
 
         public override double GetArea()

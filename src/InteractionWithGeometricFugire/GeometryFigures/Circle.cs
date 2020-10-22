@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace InteractionWithGeometricFugire.DAL.GeometryFigures
+namespace InteractionWithGeometricFugire.GeometryFigures
 {
     class Circle : GeometryFigure
     {

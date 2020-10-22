@@ -17,7 +17,7 @@ namespace InteractionWithGeometricFugire.DAL
             points[3] = new Points() { X = 4, Y = 5 };
 
             // act 
-            bool result = WorkWithCoords.IsLinesParallel(points[0], points[1], points[2], points[3]);
+            bool result = CoordsService.IsLinesParallel(points[0], points[1], points[2], points[3]);
 
             // assert
             Assert.IsTrue(result);
@@ -34,7 +34,7 @@ namespace InteractionWithGeometricFugire.DAL
             points[3] = new Points() { X = 6, Y = 2 };
             
             // act 
-            bool result = WorkWithCoords.IsLinesParallel(points[0], points[1], points[2], points[3]);
+            bool result = CoordsService.IsLinesParallel(points[0], points[1], points[2], points[3]);
 
             // assert
             Assert.IsTrue(result);
