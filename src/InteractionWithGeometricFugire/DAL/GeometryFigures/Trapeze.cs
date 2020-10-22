@@ -1,10 +1,10 @@
 ﻿using System;
+using InteractionWithGeometricFugire.BLL;
 
-namespace InteractionWithGeometricFugire.BLL.GeometryFigure
+namespace InteractionWithGeometricFugire.DAL.GeometryFigures
 {
     class Trapeze : GeometricFigureWithSides
     {
-        // не правильно, не надо привязываться к оси ординат!
         private void setOrderSides()
         {
             double[] result = new double[4];

@@ -1,5 +1,5 @@
 ﻿
-namespace InteractionWithGeometricFugire.BLL.GeometryFigure
+namespace InteractionWithGeometricFugire.DAL.GeometryFigures
 {
     class Polygonal : GeometricFigureWithSides
     {

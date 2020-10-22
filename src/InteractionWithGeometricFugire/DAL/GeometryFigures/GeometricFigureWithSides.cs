@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace InteractionWithGeometricFugire.BLL.GeometryFigure
+namespace InteractionWithGeometricFugire.DAL.GeometryFigures
 {
     abstract class GeometricFigureWithSides : GeometryFigure
     {

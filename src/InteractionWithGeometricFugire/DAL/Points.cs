@@ -1,4 +1,4 @@
-﻿namespace InteractionWithGeometricFugire.BLL
+﻿namespace InteractionWithGeometricFugire.DAL
 {
     public class Points
     {

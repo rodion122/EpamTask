@@ -41,29 +41,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLL\FacrotyMethod\CreateCircle.cs" />
-    <Compile Include="BLL\FacrotyMethod\CreateParallelogram.cs" />
-    <Compile Include="BLL\FacrotyMethod\CreatePolygonal.cs" />
-    <Compile Include="BLL\FacrotyMethod\CreateQuadrangle.cs" />
-    <Compile Include="BLL\FacrotyMethod\CreateRectangle.cs" />
-    <Compile Include="BLL\FacrotyMethod\CreateTrapeze.cs" />
-    <Compile Include="BLL\FacrotyMethod\CreateTriangle.cs" />
-    <Compile Include="BLL\FacrotyMethod\ICreateGeometryFigure.cs" />
+    <Compile Include="BLL\FactoryMethod\CreateCircle.cs" />
+    <Compile Include="BLL\FactoryMethod\CreateParallelogram.cs" />
+    <Compile Include="BLL\FactoryMethod\CreatePolygonal.cs" />
+    <Compile Include="BLL\FactoryMethod\CreateQuadrangle.cs" />
+    <Compile Include="BLL\FactoryMethod\CreateRectangle.cs" />
+    <Compile Include="BLL\FactoryMethod\CreateTrapeze.cs" />
+    <Compile Include="BLL\FactoryMethod\CreateTriangle.cs" />
+    <Compile Include="BLL\FactoryMethod\ICreateGeometryFigure.cs" />
     <Compile Include="BLL\FigureService.cs" />
-    <Compile Include="BLL\GeometryFigure\Circle.cs" />
-    <Compile Include="BLL\GeometryFigure\GeometricFigureWithSides.cs" />
-    <Compile Include="BLL\GeometryFigure\GeometryFigure.cs" />
-    <Compile Include="BLL\GeometryFigure\Parallelogram.cs" />
-    <Compile Include="BLL\GeometryFigure\Polygonal.cs" />
-    <Compile Include="BLL\GeometryFigure\Quadrangle.cs" />
-    <Compile Include="BLL\GeometryFigure\Rectangle.cs" />
-    <Compile Include="BLL\GeometryFigure\Trapeze.cs" />
-    <Compile Include="BLL\GeometryFigure\Triangle.cs" />
-    <Compile Include="BLL\Points.cs" />
     <Compile Include="BLL\Validation\Validation.cs" />
     <Compile Include="BLL\WorkWithCollectionGeometryFigure.cs" />
     <Compile Include="BLL\WorkWithCoords.cs" />
     <Compile Include="DAL\FileManager.cs" />
+    <Compile Include="DAL\GeometryFigures\Circle.cs" />
+    <Compile Include="DAL\GeometryFigures\GeometricFigureWithSides.cs" />
+    <Compile Include="DAL\GeometryFigures\GeometryFigure.cs" />
+    <Compile Include="DAL\GeometryFigures\Parallelogram.cs" />
+    <Compile Include="DAL\GeometryFigures\Polygonal.cs" />
+    <Compile Include="DAL\GeometryFigures\Quadrangle.cs" />
+    <Compile Include="DAL\GeometryFigures\Rectangle.cs" />
+    <Compile Include="DAL\GeometryFigures\Trapeze.cs" />
+    <Compile Include="DAL\GeometryFigures\Triangle.cs" />
+    <Compile Include="DAL\Points.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

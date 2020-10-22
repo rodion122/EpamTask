@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace InteractionWithGeometricFugire.BLL.GeometryFigure
+﻿namespace InteractionWithGeometricFugire.DAL.GeometryFigures
 {
     class Quadrangle : GeometricFigureWithSides
     {

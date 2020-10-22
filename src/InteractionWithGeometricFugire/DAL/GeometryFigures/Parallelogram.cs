@@ -1,6 +1,7 @@
 ﻿using System;
+using InteractionWithGeometricFugire.BLL;
 
-namespace InteractionWithGeometricFugire.BLL.GeometryFigure
+namespace InteractionWithGeometricFugire.DAL.GeometryFigures
 {
     class Parallelogram : GeometricFigureWithSides
     {

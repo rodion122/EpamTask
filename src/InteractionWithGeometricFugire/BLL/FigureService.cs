@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using InteractionWithGeometricFugire.DAL;
+using InteractionWithGeometricFugire.DAL.GeometryFigures;
 
 namespace InteractionWithGeometricFugire.BLL
 {
@@ -69,7 +71,7 @@ namespace InteractionWithGeometricFugire.BLL
             return "None";
         }
 
-        public static double AveragePerimeterOfAllShapes(List<GeometryFigure.GeometryFigure> figures)
+        public static double AveragePerimeterOfAllShapes(List<GeometryFigure> figures)
         {
             if (figures == null)
                 throw new ArgumentNullException();
@@ -77,7 +79,7 @@ namespace InteractionWithGeometricFugire.BLL
             return figures.Average(i => i.GetPerimeter());
         }
 
-        public static double AverageAreaOfAllShapes(List<GeometryFigure.GeometryFigure> figures)
+        public static double AverageAreaOfAllShapes(List<GeometryFigure> figures)
         {
             if (figures == null)
                 throw new ArgumentNullException();
@@ -85,19 +87,19 @@ namespace InteractionWithGeometricFugire.BLL
             return figures.Average(i => i.GetArea());
         }
 
-        public static string FindFigureWithLargestArea(List<GeometryFigure.GeometryFigure> figures)
+        public static string FindFigureWithLargestArea(List<GeometryFigure> figures)
         {
             if (figures == null)
                 throw new ArgumentNullException();
 
-            GeometryFigure.GeometryFigure necessaryFigure = figures.Where(i => i.GetArea() == figures.Max(j => j.GetArea())).First();
+            GeometryFigure necessaryFigure = figures.Where(i => i.GetArea() == figures.Max(j => j.GetArea())).First();
             string result = null;
             result += "Type figure: " + necessaryFigure.TypeFigure + "; ";
             result += "Area: " + necessaryFigure.GetArea();
             return result;
         }
 
-        public static string FindTypeFigureWithMaxAvaragePerimentr(List<GeometryFigure.GeometryFigure> figures)
+        public static string FindTypeFigureWithMaxAvaragePerimentr(List<GeometryFigure> figures)
         {
             if (figures == null)
                 throw new ArgumentNullException();

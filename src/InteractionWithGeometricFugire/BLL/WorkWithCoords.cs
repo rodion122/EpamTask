@@ -1,4 +1,5 @@
 ﻿using System;
+using InteractionWithGeometricFugire.DAL;
 
 namespace InteractionWithGeometricFugire.BLL
 {

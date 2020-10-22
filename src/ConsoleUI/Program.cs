@@ -1,5 +1,6 @@
 ﻿using System;
 using InteractionWithGeometricFugire.BLL;
+using InteractionWithGeometricFugire.DAL.GeometryFigures;
 
 namespace Task
 {
@@ -10,13 +11,13 @@ namespace Task
             WorkWithCollectionGeometryFigure test = new WorkWithCollectionGeometryFigure();
             try
             {
-                test.ReadInformationFromFile(@"D:\programms\Git\EpamTask\src\InteractionWithGeometricFugire\DAL\FeguresCoords.txt");
+                test.SetUploadedInformationFromFile(@"D:\programms\Git\EpamTask\src\InteractionWithGeometricFugire\DAL\FeguresCoords.txt");
                 test.CreateListFigures();
             }catch(ArgumentNullException ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            foreach (InteractionWithGeometricFugire.BLL.GeometryFigure.GeometryFigure item in test.GetListFigures())
+            foreach (GeometryFigure item in test.GetListFigures())
                 Console.WriteLine(item.TypeFigure + "  " + item.GetArea()  + "  " + item.GetPerimeter());
 
             try
@@ -37,5 +38,6 @@ namespace Task
             Console.WriteLine("\n\nPlease press any key...");
             Console.ReadKey();
         }
+
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace InteractionWithGeometricFugire.BLL.GeometryFigure
+﻿namespace InteractionWithGeometricFugire.DAL.GeometryFigures
 {
     public abstract class GeometryFigure
     {

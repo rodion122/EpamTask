@@ -19,14 +19,5 @@ namespace InteractionWithGeometricFugire.DAL
 			Regex.Replace(result.ToString().Trim(), @"\s+", " ");
 			return result.ToString().TrimEnd().Split('\n');
 		}
-
-		public static void WriteInformation(string filePath, string[] information)
-		{
-			FileStream file = new FileStream(filePath, FileMode.Append, FileAccess.Write);
-			StreamWriter write = new StreamWriter(file);
-			for (int i = 0; i < information.Length; i++)
-				write.WriteLine(information[i]);
-			write.Close();
-		}
 	}
 }

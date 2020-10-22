@@ -1,25 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using InteractionWithGeometricFugire.DAL;
-using InteractionWithGeometricFugire.BLL.GeometryFigure;
+using InteractionWithGeometricFugire.BLL;
+using InteractionWithGeometricFugire.BLL.FactoryMethod;
 
-namespace InteractionWithGeometricFugire.BLL
+namespace InteractionWithGeometricFugire.DAL.GeometryFigures
 {
     public class WorkWithCollectionGeometryFigure
     {
         private string[] uploadedInformation;
-        private List<GeometryFigure.GeometryFigure> figures = new List<GeometryFigure.GeometryFigure>();
-        private GeometryFigure.GeometryFigure collectionItem;
+        private List<GeometryFigure> figures = new List<GeometryFigure>();
+        private GeometryFigure collectionItem;
         private ICreateGeometryFigure builderFigure;
 
         public WorkWithCollectionGeometryFigure()
         {
         }
 
-        public void ReadInformationFromFile(string route)
-        {
-             uploadedInformation = FileManager.ReadInformation(route);
-        }
+        public void SetUploadedInformationFromFile(string route) => uploadedInformation = FileManager.ReadInformation(route);
 
         public void CreateListFigures()
         {
@@ -88,6 +85,6 @@ namespace InteractionWithGeometricFugire.BLL
             }
         }
 
-        public List<GeometryFigure.GeometryFigure> GetListFigures() => figures;
+        public List<GeometryFigure> GetListFigures() => figures;
     }
 }

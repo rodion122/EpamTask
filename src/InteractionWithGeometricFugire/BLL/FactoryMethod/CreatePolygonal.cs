@@ -1,4 +1,6 @@
-﻿namespace InteractionWithGeometricFugire.BLL.GeometryFigure
+﻿using InteractionWithGeometricFugire.DAL.GeometryFigures;
+
+namespace InteractionWithGeometricFugire.BLL.FactoryMethod
 {
     class CreatePolygonal : ICreateGeometryFigure
     {

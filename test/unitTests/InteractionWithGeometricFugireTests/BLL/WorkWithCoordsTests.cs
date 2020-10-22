@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using InteractionWithGeometricFugire.BLL;
 
-namespace InteractionWithGeometricFugire.BLL.Tests
+namespace InteractionWithGeometricFugire.DAL
 {
     [TestClass()]
     public class WorkWithCoordsTests

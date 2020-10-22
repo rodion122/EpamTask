@@ -1,5 +1,6 @@
 ﻿using System.Linq;
-using InteractionWithGeometricFugire.BLL.GeometryFigure;
+using InteractionWithGeometricFugire.DAL;
+using InteractionWithGeometricFugire.DAL.GeometryFigures;
 
 namespace InteractionWithGeometricFugire.BLL
 {
